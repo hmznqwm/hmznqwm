@@ -935,10 +935,18 @@
 
         <!-- Right Column: Softwares Anak IT (Exact 2 Large + 3 Medium Squircle Grid + 5 Progress Bars) -->
         <div class="md:col-span-6 md:pl-2">
-          <div class="mb-4">
+          <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-[31px] font-semibold text-[#111111] tracking-[-0.02em] leading-tight">
               Softwares
             </h2>
+            <div id="softwareTabContainer" class="flex items-center bg-[#EAEAEA] p-1 rounded-lg text-[11px] font-medium">
+              <button id="tabLangs" onclick="setSoftwareTab('langs')" class="px-2.5 py-1 rounded-md bg-white text-[#111111] font-semibold shadow-xs transition-all cursor-pointer">
+                GitHub Languages
+              </button>
+              <button id="tabTools" onclick="setSoftwareTab('tools')" class="px-2.5 py-1 rounded-md text-[#666666] hover:text-[#111111] transition-all cursor-pointer">
+                Software Tools
+              </button>
+            </div>
           </div>
 
           <!-- ICON GRID + 5 BARS (100% Identical Visual Layout to Reference Photo) -->
@@ -1041,70 +1049,94 @@
               </div>
             </div>
 
-            <!-- Right Sub-Column: 8 Skill Progress Bars (Spaced to match the 4 rows of 82px icons) -->
-            <div class="w-full sm:w-[168px] space-y-[18px] pt-1">
+            <!-- Right Sub-Column: 8 Skill Progress Bars -->
+            <div class="w-full sm:w-[168px] space-y-[18px] pt-1" id="skillBarsList">
               
-              <!-- Bar 1 (VS Code) -->
-              <div>
-                <div id="barLabel1" class="text-[11px] font-medium text-[#222222] mb-1">VS Code</div>
+              <!-- Bar 1 -->
+              <div id="barContainer1">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel1">Dart</span>
+                  <span id="barPct1" class="text-[10px] font-mono text-[#666666]">78.4%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill1" class="skill-fill bg-[#2B2B2B]" style="width: 95%;"></div>
+                  <div id="barFill1" class="skill-fill bg-[#00B4AB]" style="width: 78.4%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 2 (Figma) -->
-              <div>
-                <div id="barLabel2" class="text-[11px] font-medium text-[#222222] mb-1">Figma UI/UX</div>
+              <!-- Bar 2 -->
+              <div id="barContainer2">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel2">Python</span>
+                  <span id="barPct2" class="text-[10px] font-mono text-[#666666]">10.3%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill2" class="skill-fill bg-[#EB2A64]" style="width: 86%;"></div>
+                  <div id="barFill2" class="skill-fill bg-[#3572A5]" style="width: 10.3%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 3 (Docker & MySQL) -->
-              <div>
-                <div id="barLabel3" class="text-[11px] font-medium text-[#222222] mb-1">Docker &amp; MySQL</div>
+              <!-- Bar 3 -->
+              <div id="barContainer3">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel3">HTML</span>
+                  <span id="barPct3" class="text-[10px] font-mono text-[#666666]">8.7%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill3" class="skill-fill bg-[#1BA1F3]" style="width: 82%;"></div>
+                  <div id="barFill3" class="skill-fill bg-[#E34C26]" style="width: 8.7%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 4 (Postman API) -->
-              <div>
-                <div id="barLabel4" class="text-[11px] font-medium text-[#222222] mb-1">Postman API</div>
+              <!-- Bar 4 -->
+              <div id="barContainer4">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel4">C++</span>
+                  <span id="barPct4" class="text-[10px] font-mono text-[#666666]">1.6%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill4" class="skill-fill bg-[#9E97EA]" style="width: 85%;"></div>
+                  <div id="barFill4" class="skill-fill bg-[#F34B7D]" style="width: 1.6%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 5 (Git & GitHub) -->
-              <div>
-                <div id="barLabel5" class="text-[11px] font-medium text-[#222222] mb-1">Git &amp; GitHub</div>
+              <!-- Bar 5 -->
+              <div id="barContainer5">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel5">CMake</span>
+                  <span id="barPct5" class="text-[10px] font-mono text-[#666666]">0.8%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill5" class="skill-fill bg-[#F59B1A]" style="width: 90%;"></div>
+                  <div id="barFill5" class="skill-fill bg-[#DA3434]" style="width: 0.8%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 6 (Flutter & Dart) -->
-              <div>
-                <div id="barLabel6" class="text-[11px] font-medium text-[#222222] mb-1">Flutter &amp; Dart</div>
+              <!-- Bar 6 -->
+              <div id="barContainer6">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel6">Swift</span>
+                  <span id="barPct6" class="text-[10px] font-mono text-[#666666]">0.1%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill6" class="skill-fill bg-[#02569B]" style="width: 95%;"></div>
+                  <div id="barFill6" class="skill-fill bg-[#F05138]" style="width: 0.1%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 7 (Arduino IDE) -->
-              <div>
-                <div id="barLabel7" class="text-[11px] font-medium text-[#222222] mb-1">Arduino IDE &amp; IoT</div>
+              <!-- Bar 7 -->
+              <div id="barContainer7">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel7">Kotlin</span>
+                  <span id="barPct7" class="text-[10px] font-mono text-[#666666]">0.1%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill7" class="skill-fill bg-[#00979D]" style="width: 92%;"></div>
+                  <div id="barFill7" class="skill-fill bg-[#7F52FF]" style="width: 0.1%;"></div>
                 </div>
               </div>
 
-              <!-- Bar 8 (Android Studio) -->
-              <div>
-                <div id="barLabel8" class="text-[11px] font-medium text-[#222222] mb-1">Android Studio</div>
+              <!-- Bar 8 -->
+              <div id="barContainer8">
+                <div class="flex items-center justify-between text-[11px] font-medium text-[#222222] mb-1">
+                  <span id="barLabel8">C</span>
+                  <span id="barPct8" class="text-[10px] font-mono text-[#666666]">0.1%</span>
+                </div>
                 <div class="skill-track">
-                  <div id="barFill8" class="skill-fill bg-[#3DDC84]" style="width: 88%;"></div>
+                  <div id="barFill8" class="skill-fill bg-[#555555]" style="width: 0.1%;"></div>
                 </div>
               </div>
 
@@ -1388,6 +1420,173 @@
       showToast("Label stiker: IT & Software");
     }
 
+    // GitHub Languages & Software Tools Logic
+    const fallbackLangs = [
+      { name: "Dart", pct: 78.4, color: "#00B4AB" },
+      { name: "Python", pct: 10.3, color: "#3572A5" },
+      { name: "HTML", pct: 8.7, color: "#E34C26" },
+      { name: "C++", pct: 1.6, color: "#F34B7D" },
+      { name: "CMake", pct: 0.8, color: "#DA3434" },
+      { name: "Swift", pct: 0.1, color: "#F05138" },
+      { name: "Kotlin", pct: 0.1, color: "#7F52FF" },
+      { name: "C", pct: 0.1, color: "#555555" }
+    ];
+
+    const softwareTools = [
+      { name: "VS Code", pct: 95, color: "#2B2B2B" },
+      { name: "Figma UI/UX", pct: 86, color: "#EB2A64" },
+      { name: "Docker & MySQL", pct: 82, color: "#1BA1F3" },
+      { name: "Postman API", pct: 85, color: "#9E97EA" },
+      { name: "Git & GitHub", pct: 90, color: "#F59B1A" },
+      { name: "Flutter & Dart", pct: 95, color: "#02569B" },
+      { name: "Arduino IDE & IoT", pct: 92, color: "#00979D" },
+      { name: "Android Studio", pct: 88, color: "#3DDC84" }
+    ];
+
+    const illustrationTools = [
+      { name: "Procreate", pct: 95, color: "#F37158" },
+      { name: "InDesign", pct: 70, color: "#FF3366" },
+      { name: "Photoshop", pct: 54, color: "#31A8FF" },
+      { name: "Premiere", pct: 26, color: "#9999FF" },
+      { name: "Illustrator", pct: 42, color: "#FF9A00" },
+      { name: "Lightroom", pct: 60, color: "#31A8FF" },
+      { name: "After Effects", pct: 48, color: "#9999FF" },
+      { name: "CorelDraw", pct: 50, color: "#00B4AB" }
+    ];
+
+    const langColorMap = {
+      "Dart": "#00B4AB",
+      "Python": "#3572A5",
+      "HTML": "#E34C26",
+      "C++": "#F34B7D",
+      "CMake": "#DA3434",
+      "Swift": "#F05138",
+      "Kotlin": "#7F52FF",
+      "C": "#555555",
+      "JavaScript": "#F7DF1E",
+      "TypeScript": "#3178C6",
+      "CSS": "#563D7C",
+      "Java": "#B07219",
+      "PHP": "#4F5D95",
+      "Ruby": "#701516",
+      "Go": "#00ADD8",
+      "Rust": "#DEA584",
+      "Shell": "#89E051",
+      "Batchfile": "#C1F12E"
+    };
+
+    let currentSoftwareTab = "langs";
+    let realTimeLanguages = [...fallbackLangs];
+
+    function renderBars(items) {
+      for (let i = 1; i <= 8; i++) {
+        const item = items[i - 1];
+        const lbl = document.getElementById("barLabel" + i);
+        const pct = document.getElementById("barPct" + i);
+        const fill = document.getElementById("barFill" + i);
+        const container = document.getElementById("barContainer" + i);
+
+        if (item) {
+          if (container) container.style.display = "block";
+          if (lbl) lbl.textContent = item.name;
+          if (pct) pct.textContent = item.pct + "%";
+          if (fill) {
+            fill.style.width = item.pct + "%";
+            fill.style.backgroundColor = item.color;
+          }
+        } else {
+          if (container) container.style.display = "none";
+        }
+      }
+    }
+
+    function setSoftwareTab(tab) {
+      currentSoftwareTab = tab;
+      const tabLangs = document.getElementById("tabLangs");
+      const tabTools = document.getElementById("tabTools");
+
+      if (tab === "langs") {
+        if (tabLangs) tabLangs.className = "px-2.5 py-1 rounded-md bg-white text-[#111111] font-semibold shadow-xs transition-all cursor-pointer";
+        if (tabTools) tabTools.className = "px-2.5 py-1 rounded-md text-[#666666] hover:text-[#111111] transition-all cursor-pointer";
+        renderBars(realTimeLanguages);
+      } else {
+        if (tabTools) tabTools.className = "px-2.5 py-1 rounded-md bg-white text-[#111111] font-semibold shadow-xs transition-all cursor-pointer";
+        if (tabLangs) tabLangs.className = "px-2.5 py-1 rounded-md text-[#666666] hover:text-[#111111] transition-all cursor-pointer";
+        renderBars(softwareTools);
+      }
+    }
+
+    async function loadGitHubLanguages() {
+      const cacheKey = "gh_langs_hmznqwm_cache";
+      const cacheTimeKey = "gh_langs_hmznqwm_time";
+      const now = Date.now();
+      const cached = localStorage.getItem(cacheKey);
+      const cacheTime = localStorage.getItem(cacheTimeKey);
+
+      if (cached && cacheTime && (now - parseInt(cacheTime, 10) < 15 * 60 * 1000)) {
+        try {
+          realTimeLanguages = JSON.parse(cached);
+          if (isITSoftwarePreset && currentSoftwareTab === "langs") {
+            renderBars(realTimeLanguages);
+          }
+          return;
+        } catch (e) {}
+      }
+
+      try {
+        const reposRes = await fetch("https://api.github.com/users/hmznqwm/repos?per_page=100");
+        if (!reposRes.ok) throw new Error("Gagal mengambil repositori");
+        const repos = await reposRes.json();
+
+        // Kecualikan Readme dan hmznqwm
+        const validRepos = repos.filter(r => {
+          const name = (r.name || "").toLowerCase();
+          return name !== "readme" && name !== "hmznqwm" && !r.fork;
+        });
+
+        const langTotals = {};
+        let grandTotal = 0;
+
+        await Promise.all(validRepos.map(async (repo) => {
+          try {
+            const langRes = await fetch(repo.languages_url);
+            if (langRes.ok) {
+              const langs = await langRes.json();
+              for (const [lang, bytes] of Object.entries(langs)) {
+                langTotals[lang] = (langTotals[lang] || 0) + bytes;
+                grandTotal += bytes;
+              }
+            }
+          } catch (err) {}
+        }));
+
+        if (grandTotal > 0) {
+          const sorted = Object.entries(langTotals)
+            .map(([name, bytes]) => {
+              const pct = parseFloat(((bytes / grandTotal) * 100).toFixed(1));
+              return {
+                name,
+                pct,
+                color: langColorMap[name] || "#4F5D95"
+              };
+            })
+            .sort((a, b) => b.pct - a.pct)
+            .slice(0, 8);
+
+          realTimeLanguages = sorted;
+          localStorage.setItem(cacheKey, JSON.stringify(sorted));
+          localStorage.setItem(cacheTimeKey, now.toString());
+          if (isITSoftwarePreset && currentSoftwareTab === "langs") {
+            renderBars(realTimeLanguages);
+          }
+        }
+      } catch (err) {
+        if (isITSoftwarePreset && currentSoftwareTab === "langs") {
+          renderBars(realTimeLanguages);
+        }
+      }
+    }
+
     // Toggle between Anak IT Softwares and Original Photo Creative Softwares
     function toggleSoftwarePreset() {
       isITSoftwarePreset = !isITSoftwarePreset;
@@ -1453,24 +1652,9 @@
             </svg>
           </div>
         `;
-        document.getElementById("barLabel1").textContent = "VS Code";
-        document.getElementById("barFill1").style.width = "95%";
-        document.getElementById("barLabel2").textContent = "Figma UI/UX";
-        document.getElementById("barFill2").style.width = "86%";
-        document.getElementById("barLabel3").textContent = "Docker & MySQL";
-        document.getElementById("barFill3").style.width = "82%";
-        document.getElementById("barLabel4").textContent = "Postman API";
-        document.getElementById("barFill4").style.width = "85%";
-        document.getElementById("barLabel5").textContent = "Git & GitHub";
-        document.getElementById("barFill5").style.width = "90%";
-        if (document.getElementById("barLabel6")) {
-          document.getElementById("barLabel6").textContent = "Flutter & Dart";
-          document.getElementById("barFill6").style.width = "95%";
-          document.getElementById("barLabel7").textContent = "Arduino IDE & IoT";
-          document.getElementById("barFill7").style.width = "92%";
-          document.getElementById("barLabel8").textContent = "Android Studio";
-          document.getElementById("barFill8").style.width = "88%";
-        }
+        const tabContainer = document.getElementById("softwareTabContainer");
+        if (tabContainer) tabContainer.style.display = "flex";
+        setSoftwareTab(currentSoftwareTab);
         const extraIcons = document.getElementById("extraThreeIconsRow");
         if (extraIcons) extraIcons.style.display = "flex";
         showToast("Menampilkan Software Utama Anak IT");
@@ -1505,26 +1689,11 @@
             <span class="text-[23px] font-bold text-[#31A8FF] tracking-[-0.03em] leading-none">Ps</span>
           </div>
         `;
+        const tabContainer = document.getElementById("softwareTabContainer");
+        if (tabContainer) tabContainer.style.display = "none";
         const extraIcons = document.getElementById("extraThreeIconsRow");
         if (extraIcons) extraIcons.style.display = "none";
-        document.getElementById("barLabel1").textContent = "Procreate";
-        document.getElementById("barFill1").style.width = "95%";
-        document.getElementById("barLabel2").textContent = "InDesign";
-        document.getElementById("barFill2").style.width = "70%";
-        document.getElementById("barLabel3").textContent = "Photoshop";
-        document.getElementById("barFill3").style.width = "54%";
-        document.getElementById("barLabel4").textContent = "Premiere";
-        document.getElementById("barFill4").style.width = "26%";
-        document.getElementById("barLabel5").textContent = "Illustrator";
-        document.getElementById("barFill5").style.width = "42%";
-        if (document.getElementById("barLabel6")) {
-          document.getElementById("barLabel6").textContent = "Lightroom";
-          document.getElementById("barFill6").style.width = "60%";
-          document.getElementById("barLabel7").textContent = "After Effects";
-          document.getElementById("barFill7").style.width = "48%";
-          document.getElementById("barLabel8").textContent = "CorelDraw";
-          document.getElementById("barFill8").style.width = "50%";
-        }
+        renderBars(illustrationTools);
         showToast("Menampilkan Software Ilustrasi Sesuai Foto Referensi");
       }
     }
@@ -1633,6 +1802,7 @@
         currentProfile.badgeSub = "IT & Software";
       }
       applyProfileToDOM();
+      loadGitHubLanguages();
     });
   </script>
 </body>
