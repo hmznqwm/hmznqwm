@@ -14,11 +14,4 @@
   <img src="preview.png" alt="Portofolio Hamizan Qowiem 2025" width="850" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"/>
 </a>
 
-<br/>
-<br/>
-
-<a href="https://github.com/hmznqwm">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hmznqwm&layout=compact&theme=tokyonight&exclude_repo=Readme,hmznqwm&border_radius=12&border_color=24283b" alt="Most Used Languages" />
-</a>
-
 </div>
