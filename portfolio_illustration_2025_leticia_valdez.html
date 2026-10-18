@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PORTFOLIO 2025 — Hamizan Qowiem | IT & Creative Developer Portfolio</title>
+  <!-- Google Fonts: Poppins for body/headings, Caveat for hand-drawn "Hi!" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=JetBrains+Mono:wght@500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy-stencil: #1E1B54;
+      --blue-stencil: #3787C8;
+      --magenta-doodle: #D8347F;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #D9EEFB 0%, #E7F2FA 50%, #DCE8F6 100%);
+      color: #1A1A1A;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 64px;
+    }
+
+    /* ============================================================
+       OUTER POSTER CANVAS (Matches exact background & halftone margins)
+       ============================================================ */
+    .poster-stage {
+      position: relative;
+      width: 100%;
+      max-width: 940px;
+      background: linear-gradient(180deg, #DCF0FF 0%, #E7F4FE 10%, #F5F7FA 25%, #FFFFFF 100%);
+      padding: 0;
+      box-shadow: 0 28px 80px rgba(24, 39, 75, 0.15);
+      overflow: hidden;
+      border-radius: 0 0 46px 46px;
+    }
+
+    /* ============================================================
+       TOP HERO CARD (Ocean, Orca, Boat & DIE-CUT PORTFOLIO Sticker)
+       ============================================================ */
+    .hero-illustration-container {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 590px;
+      border-radius: 46px 46px 0 0;
+      overflow: hidden;
+      background: #E8F6FF;
+      box-shadow: 0 -4px 25px rgba(58, 137, 201, 0.08);
+    }
+
+    /* Die-cut sticker positioning matching reference image */
+    .portfolio-sticker-wrap {
+      position: absolute;
+      top: 84px;
+      left: 38px;
+      z-index: 15;
+      width: 306px;
+      user-select: none;
+      filter: drop-shadow(0 10px 22px rgba(30, 27, 84, 0.08));
+    }
+
+    /* ============================================================
+       MAIN WHITE SHEET ("About Me!" & Long-Scrolling IT Sections)
+       ============================================================ */
+    .about-card {
+      position: relative;
+      z-index: 10;
+      margin-top: -38px;
+      background: #FFFFFF;
+      border-radius: 44px;
+      padding: 36px 54px 52px 64px;
+      box-shadow:
+        0 14px 34px rgba(24, 42, 74, 0.08),
+        0 -14px 34px rgba(24, 42, 74, 0.08),
+        -6px 0 20px rgba(24, 42, 74, 0.04);
+    }
+
+    /* Circular Portrait Container */
+    .portrait-circle {
+      width: 326px;
+      height: 326px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      background: #23140D;
+      box-shadow: 0 12px 30px rgba(35, 20, 13, 0.16);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .portrait-circle:hover {
+      transform: scale(1.015);
+    }
+
+    /* Software Icons Styling (Exact photo proportions: 2 large top, 3 medium bottom) */
+    .app-icon-lg {
+      width: 82px;
+      height: 82px;
+      border-radius: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .app-icon-sm {
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .app-icon-lg:hover,
+    .app-icon-sm:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 22px rgba(30, 27, 84, 0.22);
+    }
+
+    /* Progress Bar Track */
+    .skill-track {
+      width: 100%;
+      height: 7.5px;
+      background-color: #D9D9D9;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Dotted Section Divider */
+    .section-divider {
+      height: 2px;
+      background-image: linear-gradient(to right, #D8347F 36%, rgba(255,255,255,0) 0%);
+      background-position: bottom;
+      background-size: 14px 2px;
+      background-repeat: repeat-x;
+      opacity: 0.35;
+    }
+
+    /* Interactive Cards for Extended Sections */
+    .it-card {
+      background: #FAFBFD;
+      border: 1.5px solid #E6EEF8;
+      border-radius: 24px;
+      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .it-card:hover {
+      transform: translateY(-4px);
+      border-color: #9BC5EB;
+      box-shadow: 0 16px 34px rgba(30, 27, 84, 0.08);
+      background: #FFFFFF;
+    }
+
+    /* Filter Pill Active State */
+    .filter-tab.active {
+      background-color: #1E1B54;
+      color: #FFFFFF;
+      border-color: #1E1B54;
+      box-shadow: 0 6px 16px rgba(30, 27, 84, 0.18);
+    }
+
+    /* Print Rules */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF;
+        padding: 0;
+      }
+      .poster-stage {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .poster-stage {
+        padding: 14px 0 0 10px;
+      }
+      .hero-illustration-container {
+        height: 490px;
+        border-radius: 32px 32px 0 0;
+      }
+      .portfolio-sticker-wrap {
+        top: 56px;
+        left: 16px;
+        width: 255px;
+      }
+      .about-card {
+        padding: 28px 20px 36px 24px;
+        border-radius: 32px;
+      }
+      .portrait-circle {
+        width: 270px;
+        height: 270px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       FLOATING QUICK NAVIGATION & "EDIT PROFIL" TOOLBAR
+       ============================================================ -->
+  <nav class="no-print fixed top-3.5 z-50 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#CFE2F5] shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 text-[12px] font-medium text-[#1E1B54] max-w-[95vw]">
+    <a href="#top-hero" class="px-2.5 py-1 rounded-full hover:bg-[#EBF5FF] transition">Atas</a>
+    <a href="#about-section" class="px-2.5 py-1 rounded-full hover:bg-[#EBF5FF] transition">About &amp; Softwares</a>
+  </nav>
+
+  <!-- TOAST NOTIFICATION (Replaces alert) -->
+  <div id="toastBox" class="no-print fixed bottom-6 right-6 z-50 hidden items-center gap-2.5 bg-[#1E1B54] text-white px-4 py-3 rounded-2xl shadow-xl border border-[#3787C8]/40 text-[13px] font-medium transition-all">
+    <span id="toastIcon" class="text-emerald-300 font-bold">✓</span>
+    <span id="toastMsg">Berhasil disalin!</span>
+  </div>
+
+
+  <!-- ============================================================
+       MAIN POSTER STAGE
+       ============================================================ -->
+  <div class="poster-stage" id="top-hero">
+
+    <!-- Top-Right Subtle Cloud Lines Extending into Outer Margin (Exact match to top edge of photo) -->
+    <svg class="absolute top-0 right-16 w-[440px] h-[44px] pointer-events-none z-0 opacity-65" viewBox="0 0 440 44" fill="none">
+      <path d="M90 36 C 95 20, 120 18, 128 8 C 138 -2, 175 2, 180 14 C 195 12, 235 8, 265 4" stroke="#99B3C6" stroke-width="1.2"/>
+      <path d="M125 36 C 175 26, 250 18, 340 8" stroke="#99B3C6" stroke-width="1.1"/>
+    </svg>
+
+    <!-- ==========================================================
+         TOP SECTION: HERO ILLUSTRATION & 100% EXACT DIE-CUT "PORTFOLIO"
+         ========================================================== -->
+    <header class="hero-illustration-container">
+      
+      <!-- Top-Left Name Header (Matches photo position & weight) -->
+      <div class="absolute top-[22px] left-[50px] z-20 flex items-center gap-3">
+        <span id="topNameDisplay" class="text-[16.5px] font-medium text-[#1E1E28] tracking-[-0.01em]">Hamizan Qowiem</span>
+      </div>
+
+      <!-- ========================================================
+           100% PIXEL-ACCURATE DIE-CUT "PORTFOLIO" STICKER
+           - Organic white die-cut sticker contour hugging the letters
+           - "PORT" (4 letters, #1E1B54) & "FOLIO" (5 letters, #3787C8)
+             aligned to the EXACT SAME total width (x=18 to x=258)
+           - Exact stencil slits matching the reference image:
+             * P: top bowl junction slit ONLY (bottom bowl connects to stem)
+             * O: top-left & bottom-right vertical stencil slits
+             * R: top bowl junction slit + right diagonal leg slit
+             * T: right arm of top crossbar separated by vertical slit
+             * F: top horizontal bar separated by vertical slit (middle bar connected)
+             * L: bottom horizontal foot separated by vertical slit
+             * I: solid block
+           - Curved "2025" tucked right under the bottom-right curve of O
+           ======================================================== -->
+      <div class="portfolio-sticker-wrap">
+        <svg viewBox="0 0 282 184" class="w-full h-auto overflow-visible" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PORTFOLIO 2025">
+          <defs>
+            <!-- Curved path hugging the bottom contour of the final 'O' in FOLIO for "2025" -->
+            <path id="curve2025Path" d="M 205 154 C 218 162, 240 160, 259 148" />
+          </defs>
+
+          <!-- 1. ORGANIC WHITE DIE-CUT STICKER CONTOUR (Hugs PORT, FOLIO, Subtitle & 2025 just like the photo) -->
+          <path d="
+            M 20 2
+            H 256
+            C 269 2, 276 9, 276 22
+            V 52
+            C 276 62, 271 68, 265 72
+            C 272 78, 276 88, 276 105
+            C 276 122, 272 135, 268 148
+            C 264 160, 248 169, 228 169
+            C 212 169, 198 164, 188 158
+            L 148 158
+            C 138 166, 124 170, 95 170
+            H 20
+            C 8 170, 2 163, 2 150
+            V 22
+            C 2 9, 8 2, 20 2
+            Z"
+            fill="#FFFFFF"
+            opacity="0.97"
+          />
+
+          <!-- ==================== LINE 1: "PORT" (#1E1B54) ==================== -->
+          <!-- Spans x=18 to x=260 (Total width = 242px, Height = 64px, y=14 to y=78) -->
+          <g fill="#1E1B54">
+            <!-- P (x: 18 to 73) -->
+            <!-- Solid vertical stem + connected bottom bowl, with vertical stencil slit at top (x=35.5 to 38.2) -->
+            <path d="
+              M 18 14
+              H 35.5
+              V 44.5
+              H 49.5
+              C 54.8 44.5, 58 41.2, 58 36
+              C 58 30.8, 54.8 27.5, 49.5 27.5
+              H 38.2
+              V 14
+              H 50.5
+              C 64.5 14, 73.5 22.8, 73.5 36
+              C 73.5 49.2, 64.5 58, 50.5 58
+              H 35.5
+              V 78
+              H 18
+              Z"
+            />
+
+            <!-- O (x: 78 to 139) -->
+            <path fill-rule="evenodd" clip-rule="evenodd" d="
+              M 108.5 13
+              C 126.8 13, 139 25.8, 139 46
+              C 139 66.2, 126.8 79, 108.5 79
+              C 90.2 79, 78 66.2, 78 46
+              C 78 25.8, 90.2 13, 108.5 13
+              Z
+              M 108.5 27.5
+              C 99.2 27.5, 95 34.8, 95 46
+              C 95 57.2, 99.2 64.5, 108.5 64.5
+              C 117.8 64.5, 122 57.2, 122 46
+              C 122 34.8, 117.8 27.5, 108.5 27.5
+              Z"
+            />
+            <!-- Exact stencil vertical slits on O: top-left of arch & bottom-right of bowl -->
+            <rect x="98.2" y="12" width="2.6" height="17" fill="#FFFFFF" />
+            <rect x="115.8" y="63" width="2.6" height="17" fill="#FFFFFF" />
+
+            <!-- R (x: 145 to 203) -->
+            <!-- Stem + middle bar connected; top bowl separated by slit at x=162.5; diagonal leg separated by slit -->
+            <path d="
+              M 145 14
+              H 162.5
+              V 43.5
+              H 175.5
+              C 180.8 43.5, 184 40.2, 184 35.2
+              C 184 30.2, 180.8 27, 175.5 27
+              H 165.2
+              V 14
+              H 177
+              C 191 14, 199.5 22.2, 199.5 34.8
+              C 199.5 44.2, 194.2 51.2, 185.2 54.2
+              L 172 56.5
+              H 162.5
+              V 78
+              H 145
+              Z"
+            />
+            <!-- R's right diagonal leg separated by a crisp stencil slit -->
+            <polygon points="175.5,56.2 190.5,52.2 203,78 185.2,78" />
+
+            <!-- T (x: 205 to 260) -->
+            <!-- Left arm + vertical center stem connected; right arm of top bar separated by vertical slit at x=242.5 -->
+            <path d="
+              M 205 14
+              H 240
+              V 78
+              H 223
+              V 28.5
+              H 205
+              Z"
+            />
+            <!-- Right crossbar segment of T separated by 2.6px vertical stencil slit -->
+            <rect x="242.6" y="14" width="17.4" height="14.5" />
+          </g>
+
+          <!-- ==================== LINE 2: "FOLIO" (#3787C8) ==================== -->
+          <!-- Spans x=18 to x=260 (EXACT SAME 242px width as PORT! y=85 to y=137) -->
+          <g fill="#3787C8">
+            <!-- F (x: 18 to 57) -->
+            <!-- Left stem + middle crossbar connected; top right bar separated by vertical slit at x=33.8 -->
+            <path d="
+              M 18 85
+              H 33.8
+              V 105.5
+              H 52.5
+              V 117.5
+              H 33.8
+              V 137
+              H 18
+              Z"
+            />
+            <!-- Top horizontal bar of F separated by vertical stencil slit -->
+            <rect x="36.4" y="85" width="20.6" height="12.2" />
+
+            <!-- O (x: 61 to 113) -->
+            <path fill-rule="evenodd" clip-rule="evenodd" d="
+              M 87 84
+              C 102.5 84, 113 94.8, 113 111
+              C 113 127.2, 102.5 138, 87 138
+              C 71.5 138, 61 127.2, 61 111
+              C 61 94.8, 71.5 84, 87 84
+              Z
+              M 87 96.2
+              C 79.2 96.2, 75.5 102, 75.5 111
+              C 75.5 120, 79.2 125.8, 87 125.8
+              C 94.8 125.8, 98.5 120, 98.5 111
+              C 98.5 102, 94.8 96.2, 87 96.2
+              Z"
+            />
+            <rect x="78.2" y="83" width="2.3" height="14.5" fill="#FFFFFF" />
+            <rect x="93.2" y="124.5" width="2.3" height="14.5" fill="#FFFFFF" />
+
+            <!-- L (x: 119 to 159) -->
+            <!-- Vertical stem -->
+            <rect x="119" y="85" width="15.8" height="52" />
+            <!-- Bottom horizontal bar separated by vertical stencil slit at x=137.4 -->
+            <rect x="137.4" y="124.5" width="21.6" height="12.5" />
+
+            <!-- I (x: 164 to 180) -->
+            <rect x="164" y="85" width="16" height="52" />
+
+            <!-- O (x: 186 to 260 -> width 58, aligned right at x=260 with T!) -->
+            <path fill-rule="evenodd" clip-rule="evenodd" d="
+              M 223 84
+              C 244.5 84, 260 95, 260 111
+              C 260 127, 244.5 138, 223 138
+              C 201.5 138, 186 127, 186 111
+              C 186 95, 201.5 84, 223 84
+              Z
+              M 223 96.5
+              C 211.5 96.5, 204.5 102.2, 204.5 111
+              C 204.5 119.8, 211.5 125.5, 223 125.5
+              C 234.5 125.5, 241.5 119.8, 241.5 111
+              C 241.5 102.2, 234.5 96.5, 223 96.5
+              Z"
+            />
+            <rect x="211.5" y="83" width="2.4" height="14.5" fill="#FFFFFF" />
+            <rect x="232.5" y="124.5" width="2.4" height="14.5" fill="#FFFFFF" />
+          </g>
+
+          <!-- ==================== LINE 3: SUBTITLE & CURVED "2025" ==================== -->
+          <!-- Subtitle under FOL ("IT & Software") -->
+          <text id="badgeSubtitleText" x="18" y="157" font-family="'Poppins', sans-serif" font-size="18.5" font-style="italic" font-weight="400" fill="#1A1A24" letter-spacing="-0.01em">IT &amp; Software</text>
+
+          <!-- Curved "2025" tucked right under the second 'O' of FOLIO -->
+          <text font-family="'Poppins', sans-serif" font-size="13.8" font-weight="900" fill="#111118" letter-spacing="0.02em">
+            <textPath id="badgeYearText" href="#curve2025Path" startOffset="0%">2025</textPath>
+          </text>
+        </svg>
+      </div>
+
+      <!-- FULL HERO WATERCOLOR & INK SCENE SVG (Sky, Seagulls, Sea Stacks, Boat, Character, Orca & Foam) -->
+      <svg class="w-full h-full object-cover" viewBox="0 0 900 585" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="skyWash" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E4F4FF"/>
+            <stop offset="45%" stop-color="#F2FAFF"/>
+            <stop offset="100%" stop-color="#D7EEFC"/>
+          </linearGradient>
+          <radialGradient id="sunGlow" cx="15%" cy="10%" r="16%">
+            <stop offset="0%" stop-color="#FFF4C8" stop-opacity="0.95"/>
+            <stop offset="65%" stop-color="#FFF8DC" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="pastelCloud" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+            <stop offset="60%" stop-color="#FCE2EE" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#D8E5FC" stop-opacity="0.85"/>
+          </linearGradient>
+          <linearGradient id="seaWater" x1="0%" y1="0%" x2="90%" y2="100%">
+            <stop offset="0%" stop-color="#9AC6DE"/>
+            <stop offset="35%" stop-color="#75ACCA"/>
+            <stop offset="75%" stop-color="#588FB4"/>
+            <stop offset="100%" stop-color="#87B4D2"/>
+          </linearGradient>
+          <linearGradient id="boatHull" x1="0%" y1="0%" x2="100%" y2="85%">
+            <stop offset="0%" stop-color="#FCE19C"/>
+            <stop offset="35%" stop-color="#F2C476"/>
+            <stop offset="75%" stop-color="#DFAC5E"/>
+            <stop offset="100%" stop-color="#C9964B"/>
+          </linearGradient>
+          <radialGradient id="orcaBody" cx="42%" cy="38%" r="65%">
+            <stop offset="0%" stop-color="#353B5C"/>
+            <stop offset="55%" stop-color="#252942"/>
+            <stop offset="90%" stop-color="#1A1D30"/>
+            <stop offset="100%" stop-color="#2D324E"/>
+          </radialGradient>
+          <pattern id="skyHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.2" fill="#8AA9C4" fill-opacity="0.32"/>
+          </pattern>
+        </defs>
+
+        <!-- 1. SKY BACKGROUND & SUN -->
+        <rect width="900" height="585" fill="url(#skyWash)"/>
+        <circle cx="136" cy="58" r="56" fill="url(#sunGlow)"/>
+        <polygon points="0,120 190,260 170,520 0,520" fill="url(#skyHalftone)"/>
+
+        <!-- Top-Right Diagonal Sketch Lines & Stylized Clouds -->
+        <g stroke="#8CA8BE" stroke-width="1.1" fill="none" opacity="0.75">
+          <line x1="395" y1="68" x2="625" y2="2"/>
+          <line x1="415" y1="78" x2="665" y2="6"/>
+          <line x1="445" y1="88" x2="720" y2="10"/>
+        </g>
+
+        <!-- Pastel Clouds Behind Boat & Badge -->
+        <path d="M 325 142 C 345 130, 388 132, 402 148 C 412 160, 392 174, 355 175 L 320 174 Z" fill="url(#pastelCloud)" stroke="#8FA7BE" stroke-width="1.1"/>
+        <path d="M 655 78 C 685 68, 725 68, 738 80 C 758 76, 815 74, 835 88 C 845 96, 805 106, 755 108 C 705 110, 645 106, 638 96 C 632 88, 642 82, 655 78 Z" fill="url(#pastelCloud)" stroke="#8FA7BE" stroke-width="1.1"/>
+        <path d="M 92 278 C 110 264, 145 262, 162 274 C 175 282, 160 296, 125 298 C 95 300, 72 296, 82 286 Z" fill="url(#pastelCloud)" stroke="#9BB2C7" stroke-width="1"/>
+
+        <!-- 2. SEAGULLS (Upper Sky & Distant Horizon) -->
+        <g fill="none" stroke="#6E7887" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 62 96 Q 74 104 80 115 Q 87 102 98 94" stroke-width="2.2"/>
+          <path d="M 164 82 Q 172 88 176 96 Q 181 87 190 81" stroke-width="2"/>
+          <path d="M 222 96 Q 230 101 233 108 Q 238 100 247 95" stroke-width="2.2"/>
+          <path d="M 244 52 Q 254 58 258 69 Q 262 56 272 49" stroke-width="2.4"/>
+          <path d="M 380 44 Q 388 50 391 59 Q 395 49 405 44" stroke-width="2.3"/>
+          <path d="M 480 20 Q 485 25 487 30 Q 490 24 496 20" stroke-width="1.8"/>
+          <path d="M 220 278 Q 224 282 226 287 Q 228 281 232 277" stroke-width="1.5" opacity="0.75"/>
+          <path d="M 239 266 Q 243 270 245 275 Q 247 269 251 265" stroke-width="1.5" opacity="0.75"/>
+          <path d="M 255 274 Q 259 278 261 284 Q 263 277 267 272" stroke-width="1.5" opacity="0.75"/>
+          <path d="M 225 296 Q 228 299 229 303 Q 231 299 234 295" stroke-width="1.3" opacity="0.7"/>
+        </g>
+
+        <!-- 3. DISTANT ISLANDS & SEA STACKS ON LEFT HORIZON -->
+        <path d="M -10 328 Q 12 315 28 326 Q 48 310 68 332 Q 82 325 98 338 Q 116 334 132 348 L 195 362 L -10 385 Z" fill="#BACBD1" stroke="#859AA4" stroke-width="1.3" stroke-dasharray="3 2"/>
+        <g>
+          <path d="M 284 352 L 288 312 C 290 296, 304 294, 310 306 L 315 314 C 318 308, 324 310, 326 320 L 330 348 Z" fill="#DDE6E9" stroke="#3D4B56" stroke-width="1.5"/>
+          <path d="M 296 306 V 344 M 303 312 V 344 M 316 320 V 344" stroke="#6E808C" stroke-width="1.1"/>
+          <path d="M 332 348 L 334 328 C 336 318, 344 318, 346 328 L 349 346 Z" fill="#D2DEE2" stroke="#3D4B56" stroke-width="1.4"/>
+        </g>
+
+        <!-- 4. OCEAN WAVES & WATER TEXTURE -->
+        <path d="M -10 375 C 120 362, 260 346, 430 330 L 910 320 L 910 585 L -10 585 Z" fill="url(#seaWater)"/>
+        <path d="M -10 455 C 95 425, 220 378, 375 352 L 450 480 L -10 540 Z" fill="#5D96B8" opacity="0.55"/>
+        <path d="M 103 426 C 108 400, 118 386, 124 384 C 126 396, 128 412, 132 422 Z" fill="#9BB0C1" stroke="#5E778C" stroke-width="1.3"/>
+        <g fill="none" stroke="#D8EEFA" stroke-width="1.5" opacity="0.75">
+          <path d="M 180 374 C 215 366, 260 368, 295 362"/>
+          <path d="M 235 392 C 275 380, 320 384, 365 372"/>
+          <path d="M 35 450 C 75 438, 125 445, 165 434"/>
+          <path d="M 265 426 C 295 415, 330 418, 355 410"/>
+        </g>
+        <path d="M 655 545 C 725 495, 795 435, 910 405 L 910 585 L 630 585 Z" fill="#89B5D1" stroke="#5382A4" stroke-width="1.6"/>
+        <path d="M 675 550 C 745 508, 815 455, 910 432 L 910 585 Z" fill="#9BC2DC" opacity="0.7"/>
+
+        <!-- 5. BOAT & RAILINGS -->
+        <g id="boatGroup">
+          <path d="M 432 230 L 424 114 L 568 78" fill="none" stroke="#6E7B8B" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M 796 205 L 788 86 L 915 56" fill="none" stroke="#9BA8B5" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 796 205 L 788 86 L 915 56" fill="none" stroke="#DCE4EC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="818" y1="80" x2="824" y2="200" stroke="#8C9AA8" stroke-width="3.5"/>
+          <polygon points="418,228 690,210 685,188 440,215" fill="#C9B28B"/>
+          <path d="M 412 226 L 915 182 L 915 352 C 760 385, 620 392, 488 338 L 412 226 Z" fill="url(#boatHull)" stroke="#484A52" stroke-width="1.8"/>
+          <path d="M 455 289 C 605 322, 755 316, 915 282 L 915 322 C 755 356, 605 358, 476 322 Z" fill="#97CCEA" stroke="#547D9A" stroke-width="1.5"/>
+          <path d="M 408 224 L 915 178 L 915 190 L 414 234 Z" fill="#F8E7C8" stroke="#484A52" stroke-width="1.6"/>
+          <polygon points="695,70 765,70 675,380 605,380" fill="#FFFFFF" opacity="0.16"/>
+          <polygon points="785,60 855,60 765,380 695,380" fill="#FFFFFF" opacity="0.14"/>
+        </g>
+
+        <!-- 6. CHARACTER IN THE BOAT REACHING TOWARD THE ORCA -->
+        <g id="lettyBoatCharacter">
+          <path d="M 538 218 C 555 196, 608 184, 636 196 C 646 208, 650 228, 642 248 C 625 256, 595 254, 582 238 Z" fill="#C63B38" stroke="#3A1D22" stroke-width="1.8"/>
+          <path d="M 582 204 C 602 202, 622 212, 632 232" fill="none" stroke="#8E2220" stroke-width="2"/>
+          <path d="M 575 232 C 572 248, 592 262, 612 256 C 626 252, 632 236, 618 224 C 604 214, 580 218, 575 232 Z" fill="#D94B47" stroke="#3A1D22" stroke-width="1.8"/>
+          <ellipse cx="595" cy="246" rx="14" ry="8" transform="rotate(14 595 246)" fill="#881F1D" stroke="#3A1D22" stroke-width="1.5"/>
+
+          <!-- Right Hand Gripping the Boat Edge -->
+          <g fill="#DC9572" stroke="#3A1D22" stroke-width="1.6" stroke-linejoin="round">
+            <path d="M 488 222 C 492 212, 506 210, 514 218 L 538 220 L 535 230 L 492 230 Z"/>
+            <rect x="484" y="218" width="7" height="13" rx="3.5" transform="rotate(-8 484 218)"/>
+            <rect x="491" y="216" width="7.5" height="15" rx="3.5" transform="rotate(-5 491 216)"/>
+            <rect x="499" y="216" width="7.5" height="15" rx="3.5" transform="rotate(-2 499 216)"/>
+            <rect x="507" y="218" width="7.5" height="13" rx="3.5" transform="rotate(4 507 218)"/>
+          </g>
+
+          <!-- Curly Dark Blue-Indigo Hair -->
+          <g fill="#26295C" stroke="#18193A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 505 182 C 482 162, 488 122, 518 106 C 535 76, 588 72, 615 96 C 642 108, 656 148, 642 178 C 630 198, 525 202, 505 182 Z"/>
+            <path d="M 518 134 C 492 128, 486 106, 508 98 C 522 94, 535 106, 532 118" fill="#323673"/>
+            <path d="M 536 108 C 528 84, 542 64, 558 68 C 568 72, 565 92, 556 104" fill="#383D7E"/>
+            <path d="M 558 102 C 562 74, 584 58, 598 66 C 608 72, 595 92, 582 106" fill="#323673"/>
+            <path d="M 580 105 C 598 82, 624 84, 628 102 C 632 118, 614 132, 598 128" fill="#3C4288"/>
+            <path d="M 608 122 C 632 120, 648 142, 642 165 C 636 184, 616 186, 608 172" fill="#2A2E66"/>
+            <path d="M 498 152 C 482 156, 485 178, 506 182 C 520 185, 530 172, 526 158" fill="#323673"/>
+            <path d="M 515 112 C 530 105, 545 112, 548 126" fill="none" stroke="#6E78C8" stroke-width="2.5"/>
+            <path d="M 564 82 C 574 75, 586 80, 584 96" fill="none" stroke="#6E78C8" stroke-width="2.5"/>
+            <path d="M 596 102 C 612 98, 622 108, 618 124" fill="none" stroke="#6E78C8" stroke-width="2.5"/>
+          </g>
+
+          <!-- Head & Face -->
+          <g>
+            <path d="M 616 152 C 626 148, 632 158, 626 168 C 620 176, 612 174, 610 168 Z" fill="#D58B66" stroke="#3A1D22" stroke-width="1.6"/>
+            <path d="M 532 152 C 530 182, 546 212, 576 214 C 604 216, 620 192, 618 158 C 616 130, 592 120, 566 124 C 542 128, 534 138, 532 152 Z" fill="#DC9570" stroke="#3A1D22" stroke-width="1.8"/>
+            <ellipse cx="552" cy="188" rx="11" ry="6.5" transform="rotate(-12 552 188)" fill="#CE5E52" opacity="0.55"/>
+            <ellipse cx="598" cy="176" rx="12" ry="7" transform="rotate(-12 598 176)" fill="#CE5E52" opacity="0.55"/>
+            <ellipse cx="554" cy="172" rx="9.5" ry="10.5" fill="#FFFFFF" stroke="#2D1B1E" stroke-width="1.6"/>
+            <circle cx="556" cy="172" r="5.8" fill="#5A2D28"/>
+            <circle cx="556" cy="172" r="3" fill="#1E1210"/>
+            <circle cx="553.5" cy="169.5" r="2" fill="#FFFFFF"/>
+            <path d="M 580 162 Q 592 152 602 162" fill="none" stroke="#2D1B1E" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M 583 160 L 578 155 M 592 156 L 593 150 M 600 160 L 605 156" stroke="#2D1B1E" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 540 154 Q 552 146 562 152" fill="none" stroke="#26295C" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M 576 144 Q 590 135 602 142" fill="none" stroke="#26295C" stroke-width="2.8" stroke-linecap="round"/>
+            <g fill="none" stroke-linejoin="round">
+              <rect x="535" y="156" width="34" height="28" rx="6" transform="rotate(-14 552 170)" fill="rgba(255,255,255,0.18)" stroke="#3A3D52" stroke-width="4.2"/>
+              <rect x="535" y="156" width="34" height="28" rx="6" transform="rotate(-14 552 170)" stroke="#F4F6FA" stroke-width="2.4"/>
+              <rect x="574" y="145" width="35" height="28" rx="6" transform="rotate(-14 591 159)" fill="rgba(255,255,255,0.18)" stroke="#3A3D52" stroke-width="4.2"/>
+              <rect x="574" y="145" width="35" height="28" rx="6" transform="rotate(-14 591 159)" stroke="#F4F6FA" stroke-width="2.4"/>
+              <path d="M 568 164 Q 573 161 577 162" stroke="#F4F6FA" stroke-width="2.8"/>
+            </g>
+            <path d="M 573 174 C 570 180, 574 183, 579 181" fill="none" stroke="#3A1D22" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M 566 192 C 575 192, 588 187, 595 182 C 598 193, 590 204, 578 204 C 569 204, 565 198, 566 192 Z" fill="#7D2426" stroke="#3A1D22" stroke-width="1.6"/>
+            <path d="M 568 192 C 576 191, 586 188, 593 184 L 592 190 C 584 194, 575 196, 568 195 Z" fill="#FFFFFF"/>
+            <path d="M 573 202 C 577 197, 585 196, 590 199 C 586 203, 578 204, 573 202 Z" fill="#E57A77"/>
+            <path d="M 548 122 C 538 136, 542 152, 552 156" fill="none" stroke="#26295C" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 566 118 C 562 134, 568 148, 576 152" fill="none" stroke="#26295C" stroke-width="6.5" stroke-linecap="round"/>
+            <path d="M 585 116 C 590 130, 598 140, 608 142" fill="none" stroke="#26295C" stroke-width="5.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Reaching Hand -->
+          <g fill="#DC9570" stroke="#3A1D22" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 584 244 L 564 282 L 585 292 L 604 250 Z"/>
+            <path d="M 585 246 L 568 280 L 575 284 L 591 248 Z" fill="#F4B895" stroke="none"/>
+            <path d="M 564 280 C 550 278, 535 280, 532 287 C 530 292, 542 294, 554 294 C 540 298, 532 306, 536 312 C 540 317, 552 310, 560 305 C 550 314, 545 325, 552 329 C 558 332, 566 320, 572 312 C 568 322, 568 331, 575 332 C 581 333, 584 322, 585 312 C 592 316, 600 315, 602 309 C 604 303, 594 296, 585 290 Z"/>
+            <path d="M 562 292 C 570 294, 576 300, 578 306" fill="none" stroke="#9E573F" stroke-width="1.4"/>
+          </g>
+        </g>
+
+        <!-- 7. BUBBLY COMIC SEA FOAM SPLASHES -->
+        <g fill="#FFFFFF" stroke="#537FA6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 412 246 C 398 242, 394 258, 405 264 C 394 270, 402 284, 416 278 C 425 282, 434 272, 428 262 C 432 252, 422 244, 412 246 Z"/>
+          <circle cx="395" cy="292" r="5"/>
+          <circle cx="406" cy="302" r="4"/>
+          <path d="M 366 324 C 356 322, 354 336, 364 338 C 362 346, 375 348, 378 338 C 385 334, 378 320, 366 324 Z"/>
+          <path d="M 432 276 C 414 272, 404 292, 416 306 C 396 312, 392 338, 412 348 C 402 362, 418 380, 438 372 C 455 385, 485 376, 492 358 C 512 368, 538 358, 542 338 C 530 322, 505 316, 485 322 C 482 302, 462 292, 448 298 C 448 282, 440 276, 432 276 Z"/>
+          <path d="M 422 325 C 432 318, 446 325, 442 338" fill="none"/>
+          <path d="M 458 342 C 470 334, 485 342, 480 356" fill="none"/>
+          <path d="M 588 338 C 572 336, 565 354, 578 364 C 566 375, 578 394, 598 388 C 605 406, 632 408, 644 392 C 660 405, 688 396, 692 376 C 712 385, 732 372, 728 354 C 715 342, 692 346, 682 356 C 674 338, 648 336, 636 348 C 625 334, 602 332, 588 338 Z"/>
+          <path d="M 738 408 C 722 412, 718 432, 732 442 C 724 456, 742 472, 760 462 C 772 474, 796 466, 800 448 C 818 446, 822 424, 806 416 C 792 402, 768 406, 758 418 C 752 408, 744 406, 738 408 Z"/>
+          <circle cx="484" cy="272" r="6.5"/>
+          <circle cx="514" cy="285" r="5"/>
+          <circle cx="678" cy="328" r="7"/>
+          <circle cx="694" cy="332" r="5.5"/>
+          <circle cx="754" cy="378" r="6"/>
+          <circle cx="766" cy="382" r="4.5"/>
+        </g>
+
+        <!-- 8. FOREGROUND ORCA WHALE -->
+        <g id="orcaWhale">
+          <path d="M 118 525 C 114 504, 134 492, 166 494 C 198 496, 232 510, 254 528 L 122 542 Z" fill="#9AA6BE" stroke="#3F4762" stroke-width="2"/>
+          <path d="M 122 508 C 154 498, 198 504, 240 524" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 218 545 C 268 475, 345 405, 428 364 C 468 344, 514 338, 552 352 C 594 368, 622 415, 628 478 C 632 512, 628 545, 624 565 L 218 565 Z" fill="url(#orcaBody)" stroke="#383F5E" stroke-width="2.2"/>
+          <ellipse cx="475" cy="415" rx="68" ry="42" transform="rotate(-18 475 415)" fill="#3F476B" opacity="0.42"/>
+          <ellipse cx="365" cy="485" rx="55" ry="30" transform="rotate(-28 365 485)" fill="#465078" opacity="0.35"/>
+          <path d="M 248 522 C 302 454, 378 392, 456 356 C 492 340, 532 342, 564 360" fill="none" stroke="#8C9BB8" stroke-width="2.5" opacity="0.7"/>
+          <path d="M 360 434 C 366 426, 376 422, 382 424 C 378 430, 370 435, 360 434 Z" fill="#F2F6FC"/>
+          <path d="M 548 555 C 556 518, 578 488, 602 480 C 614 496, 618 528, 616 558 Z" fill="#DDE6F2" stroke="#495370" stroke-width="1.8"/>
+        </g>
+      </svg>
+    </header>
+
+
+    <!-- ==========================================================
+         MAIN WHITE SHEET: SECTION 1 ("About Me!", "Education", "Skills", "Softwares")
+         ========================================================== -->
+    <main class="about-card" id="about-section">
+      
+      <!-- "About Me!" Italic Label -->
+      <div class="mb-4">
+        <span class="text-[22.5px] italic font-medium text-[#797979] tracking-[-0.01em]">About Me!</span>
+      </div>
+
+      <!-- UPPER 2-COLUMN GRID: Bio Left + Circular Portrait Right -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Hand-drawn Arrow, Stencil Name, Bio Text -->
+        <div class="md:col-span-6 relative pt-5">
+          
+          <!-- Hand-Drawn Black Ink Curved Arrow + 3 Magenta Ticks (Exact Photo Match) -->
+          <svg class="w-[155px] h-[56px] ml-[172px] -mb-3 overflow-visible" viewBox="0 0 160 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10 22 C 42 10, 92 16, 134 45" stroke="#1E1E24" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 122 15 C 128 28, 133 39, 136 47 C 124 44, 108 40, 95 38" stroke="#1E1E24" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 30 35 L 36 27" stroke="#D8347F" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M 41 42 L 49 39" stroke="#D8347F" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M 43 52 L 54 51" stroke="#D8347F" stroke-width="2.8" stroke-linecap="round"/>
+          </svg>
+
+          <!-- Dynamic Stencil Name Heading (Renders LETICIA VALDEZ or ANY User Name in authentic stencil SVG!) -->
+          <div class="mb-2.5" id="stencilNameContainer">
+            <!-- Populated dynamically by renderStencilNameSVG() on load and on profile edit -->
+          </div>
+
+          <!-- A.K.A Letty -->
+          <p class="text-[13.2px] text-[#1A1A1A] mb-3.5 tracking-[0.01em]">
+            A.K.A <strong id="akaDisplay" class="font-bold">Hamizan</strong>
+            <span id="roleTagDisplay" class="text-[#3787C8] font-semibold ml-1.5">• Full-Stack, Mobile, PC &amp; IoT Developer</span>
+          </p>
+
+          <!-- Bio Paragraph with Oversized Hand-Drawn "Hi!" -->
+          <p class="text-[13.2px] text-[#222222] leading-[1.58] max-w-[365px]">
+            <span class="inline-block font-extrabold text-[#111111] leading-[0.8] mr-1 tracking-[-0.03em]" style="font-family: 'Caveat', 'Poppins', cursive; font-size: 35px;">Hi!</span>
+            <span id="bioDisplay">Saya seorang IT &amp; Software Developer yang sangat menguasai pengembangan Full-Stack Web, Aplikasi Mobile (Flutter &amp; Android Studio), Aplikasi PC Desktop, hingga IoT &amp; Pemrograman Arduino (Wokwi, ESP32, sensor). Saya berfokus pada arsitektur kode bersih, solusi terintegrasi dari hardware mikrokontroler hingga cloud, dan aplikasi berperforma tinggi.</span>
+          </p>
+        </div>
+
+        <!-- Right Column: Circular Ukulele Portrait + Social & Contact Links -->
+        <div class="md:col-span-6 flex flex-col items-center md:items-start md:pl-2">
+          
+          <!-- Circular Painted Ukulele Illustration (Exact match to photo) -->
+          <div class="portrait-circle">
+            <svg viewBox="0 0 340 340" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="cabinBg" cx="55%" cy="45%" r="65%">
+                  <stop offset="0%" stop-color="#432818"/>
+                  <stop offset="60%" stop-color="#27170E"/>
+                  <stop offset="100%" stop-color="#140C07"/>
+                </radialGradient>
+                <radialGradient id="faceWarmGlow" cx="68%" cy="55%" r="58%">
+                  <stop offset="0%" stop-color="#F2C67C"/>
+                  <stop offset="45%" stop-color="#CF925B"/>
+                  <stop offset="100%" stop-color="#9E683C"/>
+                </radialGradient>
+                <linearGradient id="ukeWood" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#B98548"/>
+                  <stop offset="55%" stop-color="#8C5B2B"/>
+                  <stop offset="100%" stop-color="#5E3816"/>
+                </linearGradient>
+              </defs>
+
+              <!-- 1. Dark Wood Cabin Background -->
+              <rect width="340" height="340" fill="url(#cabinBg)"/>
+              <rect x="0" y="128" width="340" height="34" fill="#331E12" opacity="0.6"/>
+              <rect x="0" y="182" width="340" height="30" fill="#2A180E" opacity="0.7"/>
+              <path d="M 0 215 Q 55 210 95 245 L 95 340 L 0 340 Z" fill="#173322" opacity="0.65"/>
+
+              <!-- 2. Fluffy Curly Dark Auburn-Red Hair -->
+              <g>
+                <path d="M 65 168 C 45 142, 48 96, 74 74 C 84 44, 128 34, 162 46 C 196 34, 242 48, 252 82 C 276 102, 274 148, 250 168 Z" fill="#4E1511"/>
+                <circle cx="88" cy="95" r="32" fill="#631B16"/>
+                <circle cx="132" cy="68" r="34" fill="#6D1E18"/>
+                <circle cx="185" cy="68" r="35" fill="#681C16"/>
+                <circle cx="228" cy="98" r="32" fill="#5D1914"/>
+                <circle cx="76" cy="135" r="26" fill="#551612"/>
+                <path d="M 102 52 Q 124 38 148 48" fill="none" stroke="#CC6E28" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+                <path d="M 188 46 Q 218 44 236 68" fill="none" stroke="#DA7B2C" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+                <path d="M 248 82 Q 268 102 258 132" fill="none" stroke="#E59238" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+              </g>
+
+              <!-- 3. Maroon Jacket & Light Blue Shirt -->
+              <g>
+                <path d="M 48 340 C 52 268, 86 226, 134 218 L 210 218 C 252 228, 282 272, 288 340 Z" fill="#6D202B" stroke="#2B0D11" stroke-width="1.8"/>
+                <path d="M 62 315 C 74 268, 102 240, 128 232" fill="none" stroke="#9E3B49" stroke-width="6" stroke-linecap="round" opacity="0.65"/>
+                <path d="M 222 232 C 248 248, 268 282, 276 325" fill="none" stroke="#A8404E" stroke-width="5" stroke-linecap="round" opacity="0.65"/>
+                <path d="M 142 222 L 198 222 L 194 340 L 146 340 Z" fill="#89A7BE" stroke="#2B1A14" stroke-width="1.5"/>
+                <path d="M 148 225 L 170 258 L 192 225" fill="none" stroke="#5D788E" stroke-width="2"/>
+                <line x1="170" y1="256" x2="170" y2="269" stroke="#3D2516" stroke-width="1.8"/>
+                <line x1="166" y1="261" x2="174" y2="261" stroke="#3D2516" stroke-width="1.8"/>
+              </g>
+
+              <!-- 4. Neck, Face, Glasses & Joyful Singing Expression -->
+              <g>
+                <path d="M 152 206 L 152 234 C 152 244, 186 244, 186 234 L 186 206 Z" fill="#B27848" stroke="#3B2112" stroke-width="1.6"/>
+                <path d="M 98 164 C 82 162, 76 178, 86 194 C 94 206, 108 206, 114 198 Z" fill="#BA7E4D" stroke="#3B2112" stroke-width="1.7"/>
+                <path d="M 90 175 C 96 174, 102 182, 98 190" fill="none" stroke="#6E4220" stroke-width="2"/>
+                <circle cx="106" cy="204" r="6.5" fill="none" stroke="#F4C43B" stroke-width="2.6"/>
+                <path d="M 106 136 C 104 178, 128 220, 174 222 C 218 224, 244 188, 242 142 C 240 105, 208 92, 172 94 C 132 96, 108 110, 106 136 Z" fill="url(#faceWarmGlow)" stroke="#3B2112" stroke-width="1.7"/>
+                <path d="M 238 148 C 238 184, 214 214, 176 220" fill="none" stroke="#FCE39C" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+                <path d="M 128 126 Q 146 116 164 124" fill="none" stroke="#5A1D16" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 196 122 Q 214 114 228 122" fill="none" stroke="#5A1D16" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 134 156 Q 152 170 168 154" fill="none" stroke="#382218" stroke-width="3.2" stroke-linecap="round"/>
+                <path d="M 136 160 L 130 166 M 146 164 L 143 171 M 156 164 L 156 171" stroke="#382218" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M 200 152 Q 215 165 228 150" fill="none" stroke="#382218" stroke-width="3.2" stroke-linecap="round"/>
+                <path d="M 206 158 L 203 165 M 216 160 L 216 167 M 225 156 L 230 162" stroke="#382218" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M 184 158 C 192 164, 194 174, 182 176" fill="none" stroke="#5E381E" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="186" cy="169" r="3.5" fill="#FBE09B" opacity="0.75"/>
+                <g fill="none" stroke-linejoin="round">
+                  <rect x="116" y="130" width="62" height="46" rx="10" transform="rotate(-6 147 153)" fill="rgba(255,255,255,0.07)" stroke="#24381E" stroke-width="5.5"/>
+                  <rect x="116" y="130" width="62" height="46" rx="10" transform="rotate(-6 147 153)" stroke="#538346" stroke-width="3.4"/>
+                  <rect x="190" y="124" width="54" height="45" rx="10" transform="rotate(-6 217 146)" fill="rgba(255,255,255,0.07)" stroke="#24381E" stroke-width="5.5"/>
+                  <rect x="190" y="124" width="54" height="45" rx="10" transform="rotate(-6 217 146)" stroke="#538346" stroke-width="3.4"/>
+                  <path d="M 177 148 Q 184 144 191 146" stroke="#538346" stroke-width="3.8"/>
+                </g>
+                <path d="M 164 190 C 176 191, 192 188, 202 183 C 204 198, 192 210, 178 209 C 166 208, 162 198, 164 190 Z" fill="#6D2826" stroke="#3B2112" stroke-width="1.6"/>
+                <path d="M 166 190 C 177 190, 190 188, 199 185 L 198 191 C 188 195, 176 196, 166 194 Z" fill="#FDFBF7"/>
+                <path d="M 169 204 C 175 196, 188 196, 195 201 C 190 207, 177 209, 169 204 Z" fill="#E59892"/>
+                <path d="M 96 122 C 112 104, 138 104, 152 114 C 166 100, 195 98, 212 112 C 226 102, 242 110, 244 124" fill="none" stroke="#5C1813" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 122 106 Q 145 96 168 106 M 182 102 Q 205 94 224 106" fill="none" stroke="#C86826" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              </g>
+
+              <!-- 5. Wooden Ukulele & Strumming Hands -->
+              <g id="ukuleleAndHands">
+                <path d="M 110 278 C 106 254, 132 242, 156 254 C 168 260, 178 258, 190 250 C 212 238, 236 252, 238 276 C 240 302, 216 322, 192 314 C 178 308, 168 310, 154 318 C 130 330, 114 304, 110 278 Z" fill="url(#ukeWood)" stroke="#2B1608" stroke-width="1.8"/>
+                <path d="M 118 258 C 134 246, 152 252, 166 258 C 180 260, 196 244, 216 246" fill="none" stroke="#F4CA78" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="195" cy="278" r="15" fill="#2A1508" stroke="#D9A85C" stroke-width="1.5"/>
+                <rect x="142" y="274" width="8" height="26" rx="2" transform="rotate(-18 142 274)" fill="#3D200E"/>
+                <path d="M 212 268 L 312 230 L 318 246 L 218 284 Z" fill="#4E2C14" stroke="#241206" stroke-width="1.5"/>
+                <line x1="234" y1="260" x2="239" y2="275" stroke="#B89B72" stroke-width="1.2"/>
+                <line x1="252" y1="253" x2="257" y2="268" stroke="#B89B72" stroke-width="1.2"/>
+                <line x1="270" y1="246" x2="275" y2="261" stroke="#B89B72" stroke-width="1.2"/>
+                <line x1="288" y1="239" x2="293" y2="254" stroke="#B89B72" stroke-width="1.2"/>
+                <path d="M 310 228 L 338 216 L 344 236 L 316 248 Z" fill="#6E411F" stroke="#241206" stroke-width="1.5"/>
+                <circle cx="316" cy="218" r="3.2" fill="#F5E6C8"/>
+                <circle cx="329" cy="213" r="3.2" fill="#F5E6C8"/>
+                <g stroke="#F7EBD2" stroke-width="0.9" opacity="0.85">
+                  <line x1="146" y1="278" x2="314" y2="232"/>
+                  <line x1="148" y1="282" x2="315" y2="236"/>
+                  <line x1="150" y1="286" x2="316" y2="240"/>
+                  <line x1="152" y1="290" x2="317" y2="244"/>
+                </g>
+                <path d="M 110 305 C 122 288, 145 276, 168 278 C 182 280, 186 290, 174 294 C 184 296, 185 304, 173 306 C 180 310, 176 318, 164 316 C 148 316, 130 318, 116 324 Z" fill="#DF9F5E" stroke="#3B2112" stroke-width="1.6"/>
+                <path d="M 122 296 C 140 282, 160 280, 176 284" fill="none" stroke="#FCE29C" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M 255 268 C 254 252, 264 244, 272 248 C 276 242, 285 244, 286 252 C 292 248, 298 254, 295 264 C 290 278, 274 286, 260 280 Z" fill="#D59454" stroke="#3B2112" stroke-width="1.6"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Social & Contact Links Below Portrait -->
+          <div class="mt-4 space-y-2 md:pl-2">
+            <!-- Instagram -->
+            <a id="igLink" href="https://instagram.com/hmznqwm" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-[#1A1A1A] hover:text-[#3787C8] transition group" title="Buka profil Instagram Hamizan">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+                <circle cx="12" cy="12" r="4.2"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              <span id="igDisplay" class="text-[15px] font-normal tracking-[-0.01em]">hmznqwm</span>
+            </a>
+
+            <!-- Email -->
+            <a id="emailLink" href="mailto:hamizanqowiem4@gmail.com" class="flex items-center gap-2.5 text-[#1A1A1A] hover:text-[#3787C8] transition group" title="Kirim email ke Hamizan">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+                <path d="M3 6L12 13L21 6"/>
+                <path d="M3 18L9.5 12M21 18L14.5 12"/>
+              </svg>
+              <span id="emailDisplay" class="text-[15px] font-normal tracking-[-0.01em]">hamizanqowiem4@gmail.com</span>
+            </a>
+
+            <!-- GitHub (Anak IT Essential) -->
+            <a id="githubLink" href="https://github.com/hmznqwm" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-[#1A1A1A] hover:text-[#3787C8] transition group" title="Buka profil GitHub Hamizan">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <span id="githubDisplay" class="text-[15px] font-normal tracking-[-0.01em]">github.com/hmznqwm</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ========================================================
+           LOWER 2-COLUMN GRID: Education & Skills (Left) + Softwares Anak IT (Right)
+           ======================================================== -->
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Education & Skills -->
+        <div class="md:col-span-6 relative">
+          
+          <!-- EDUCATION SECTION -->
+          <div class="relative mb-8">
+            <!-- Hand-Drawn Magenta Loop Squiggle at Top-Left of "Education" -->
+            <svg class="absolute -left-[25px] -top-[18px] w-[42px] h-[36px] pointer-events-none overflow-visible" viewBox="0 0 46 40" fill="none">
+              <path d="M 3 34 C 1 20, 12 8, 22 12 C 28 15, 25 24, 18 22 C 11 20, 16 6, 36 3" stroke="#D8347F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <h2 class="text-[31px] font-semibold text-[#111111] tracking-[-0.02em] leading-tight mb-2.5">
+              Education
+            </h2>
+            <p id="eduDisplay" class="text-[13.3px] text-[#222222] leading-[1.52] max-w-[300px]">
+              Currently studying Informatics Engineering / Computer Science (S1 Teknik Informatika) at the Technological Institute.
+            </p>
+          </div>
+
+          <!-- SKILLS SECTION (Anak IT) -->
+          <div class="relative">
+            <div class="inline-flex items-center gap-2 mb-2.5">
+              <h2 class="text-[31px] font-semibold text-[#111111] tracking-[-0.02em] leading-tight">
+                Skills
+              </h2>
+              <!-- Hand-Drawn Magenta Curved Arrow Pointing to "Skills" -->
+              <svg class="w-[34px] h-[28px] mt-1 overflow-visible" viewBox="0 0 38 30" fill="none">
+                <path d="M 32 4 C 22 6, 14 14, 7 24" stroke="#D8347F" stroke-width="2.3" stroke-linecap="round"/>
+                <path d="M 6 13 L 6 25 L 18 21" stroke="#D8347F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <ul id="skillsListDisplay" class="text-[13.3px] text-[#222222] leading-[1.55] space-y-1.5 pl-1">
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>Full-Stack Web Development (Next.js &amp; Laravel)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>Mobile App Development (Flutter &amp; Android)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>Aplikasi PC Desktop (Flutter Desktop Windows)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>IoT &amp; Pemrograman Arduino (Wokwi &amp; ESP32)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>UI/UX Design &amp; Interactive Prototyping Figma</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>RESTful API, SQL Database &amp; Cloud Firebase</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[14px] leading-none text-[#1E1B54] font-bold">•</span>
+                <span>State Management (Bloc, Provider) &amp; Git Workflow</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Softwares Anak IT (Exact 2 Large + 3 Medium Squircle Grid + 5 Progress Bars) -->
+        <div class="md:col-span-6 md:pl-2">
+          <div class="mb-4">
+            <h2 class="text-[31px] font-semibold text-[#111111] tracking-[-0.02em] leading-tight">
+              Softwares
+            </h2>
+          </div>
+
+          <!-- ICON GRID + 5 BARS (100% Identical Visual Layout to Reference Photo) -->
+          <div class="flex flex-col sm:flex-row items-start gap-6">
+            
+            <!-- Left Sub-Column: 8 Large Squircles (All 82px × 82px matching VS Code & Figma) -->
+            <div class="shrink-0" id="softwareIconsBlock">
+              <div class="grid grid-cols-2 gap-3.5" id="eightLargeIconsGrid">
+                
+                <!-- 1. VS Code (82px × 82px) -->
+                <div class="app-icon-lg bg-[#1F212B]" title="Visual Studio Code — Code Editor Utama Anak IT">
+                  <svg viewBox="0 0 84 84" class="w-full h-full p-3.5">
+                    <path d="M58.5 10.5L27.5 39.2L14.5 29.2L9 32.8V51.2L14.5 54.8L27.5 44.8L58.5 73.5L73 66.5V17.5L58.5 10.5ZM58.5 28.2V55.8L38.5 42L58.5 28.2Z" fill="#24A3FF"/>
+                    <path d="M58.5 10.5L73 17.5V66.5L58.5 73.5V10.5Z" fill="#007ACC"/>
+                  </svg>
+                </div>
+
+                <!-- 2. Figma (82px × 82px) -->
+                <div class="app-icon-lg bg-[#1E1E1E]" title="Figma — UI/UX Design &amp; Prototyping">
+                  <svg viewBox="0 0 38 57" class="h-[46px] w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                    <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                    <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                    <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                    <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                  </svg>
+                </div>
+
+                <!-- 3. Git & GitHub (82px × 82px) -->
+                <div class="app-icon-lg bg-[#1C1F26]" title="Git &amp; GitHub — Version Control System">
+                  <svg viewBox="0 0 128 128" class="w-full h-full p-3.5" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#FFFFFF" d="M 64 9 L 119 64 L 64 119 L 9 64 Z"/>
+                    <path fill="#F34F29" d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z"/>
+                  </svg>
+                </div>
+
+                <!-- 4. Postman API (82px × 82px) -->
+                <div class="app-icon-lg bg-[#1C1F26]" title="Postman — API Testing &amp; Development">
+                  <svg viewBox="0 0 64 64" class="w-full h-full p-3.5" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M57.327 12.44a32 32 0 1 0-5.761 44.88c13.98-10.804 16.56-30.895 5.76-44.88z" fill="#FF6C37"/>
+                    <path d="M42.793 20.388L29.3 33.988l-3.813-3.92c13.28-13.28 14.613-12.08 17.307-9.68z" fill="#FFFFFF"/>
+                    <path d="M29.3 34.36a.48.48 0 0 1-.32-.133l-3.84-3.84a.48.48 0 0 1 0-.667c13.093-13.093 14.88-12.48 17.973-9.68.105.084.164.212.16.347.02.13-.03.263-.133.347L29.647 34.228c-.095.087-.218.134-.347.133zm-3.147-4.293l3.147 3.147 12.8-12.8a2.88 2.88 0 0 0-3.787-.64c-2.32 1.04-6.053 4.213-12.16 10.293z" fill="#FF6C37"/>
+                    <path d="M33.167 37.748l-3.68-3.76L42.98 20.654c3.627 3.547-1.76 9.467-9.813 17.093z" fill="#FFFFFF"/>
+                    <path d="M33.167 38.228a.56.56 0 0 1-.32-.133l-3.76-3.68a.56.56 0 0 1 0-.427c-.04-.112-.04-.235 0-.347L42.58 20.148c.195-.183.498-.183.693 0 .885.814 1.37 1.972 1.333 3.173 0 3.6-4.107 8.133-11.093 14.747a.56.56 0 0 1-.347.16zm-2.987-4.24L33.193 37c5.333-5.04 10.427-10.24 10.453-13.76a3.04 3.04 0 0 0-.693-2.053z" fill="#FF6C37"/>
+                    <path d="M25.593 30.148l2.667 2.667a.16.16 0 0 1 0 .24l-5.627 1.2c-.233.05-.47-.062-.582-.272s-.07-.47.102-.635l3.28-3.253s.107 0 .16.053z" fill="#FFFFFF"/>
+                    <path d="M22.5 34.788a1.04 1.04 0 0 1-.88-.507c-.21-.397-.135-.886.187-1.2l3.253-3.28a.64.64 0 0 1 .853 0l2.667 2.667c.158.15.22.377.16.587s-.236.377-.453.427l-5.627 1.2zm2.987-4.053l-3.013 3.013 4.987-1.067zm.24-.24z" fill="#FF6C37"/>
+                    <path d="M49.967 12.894c-1.93-1.862-4.962-1.94-6.986-.183s-2.37 4.773-.794 6.943 4.547 2.778 6.847 1.4l-3.627-3.627z" fill="#FFFFFF"/>
+                    <path d="M46.367 22.28a5.65 5.65 0 0 1-5.156-3.508c-.86-2.098-.384-4.506 1.2-6.118a5.71 5.71 0 0 1 8 0c.102.086.16.213.16.347a.46.46 0 0 1-.16.347l-4.32 4.08 3.28 3.227a.45.45 0 0 1 .133.4.48.48 0 0 1-.213.347 5.8 5.8 0 0 1-2.933.88zm0-10.347c-1.9.01-3.6 1.153-4.313 2.9s-.325 3.758 1.007 5.1c1.356 1.363 3.4 1.755 5.173.987l-3.147-3.147c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32l4.16-4.187c-.827-.634-1.838-.98-2.88-.987z" fill="#FF6C37"/>
+                    <path d="M50.047 12.974l-4.56 4.533 3.627 3.627a5.52 5.52 0 0 0 1.013-.747c1.976-2.1 1.94-5.368-.08-7.413z" fill="#FFFFFF"/>
+                    <path d="M49.033 21.534a.4.4 0 0 1-.32-.133l-3.627-3.627c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32l4.533-4.453a.48.48 0 0 1 .8 0 5.6 5.6 0 0 1 0 8 4.88 4.88 0 0 1-1.067.853.43.43 0 0 1-.32.027zM46.1 17.428l3.013 3.013a5.12 5.12 0 0 0 .587-.48 4.72 4.72 0 0 0 1.387-3.333 4.58 4.58 0 0 0-1.147-3.04z" fill="#FF6C37"/>
+                    <path d="M43.353 20.948c-.75-.704-1.917-.704-2.667 0L28.607 33l2 2.027 12.773-11.2c.395-.377.616-.9.61-1.446s-.236-1.065-.637-1.434z" fill="#FFFFFF"/>
+                    <path d="M30.5 35.508a.48.48 0 0 1-.32-.133l-2.027-2.027a.48.48 0 0 1 0-.667l12.08-12.027c.958-.956 2.51-.956 3.467 0 .48.48.74 1.135.72 1.813-.028.674-.326 1.308-.827 1.76l-12.773 11.2c-.093.066-.207.094-.32.08zM29.087 33l1.333 1.36 12.533-10.907c.31-.27.495-.656.507-1.067s-.15-.813-.453-1.093c-.583-.58-1.524-.58-2.107 0z" fill="#FF6C37"/>
+                    <path d="M19.247 46.734a.27.27 0 0 0 0 .32l.533 2.32c.046.277-.087.553-.332.7a.65.65 0 0 1-.762-.077l-3.653-3.52L26.42 35h3.947l2.667 2.667a60.54 60.54 0 0 1-13.787 9.067z" fill="#FFFFFF"/>
+                    <path d="M19.007 50.654c-.302-.006-.6-.13-.8-.347l-3.493-3.493c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32L26.18 34.654a.45.45 0 0 1 .24-.133h3.973a.48.48 0 0 1 .32 0l2.667 2.667c.103.095.153.235.133.373a.43.43 0 0 1-.16.347l-.213.187a65.33 65.33 0 0 1-13.68 8.773l.507 2.16a1.15 1.15 0 0 1-1.093 1.413zm-3.253-4.187L18.9 49.64a.16.16 0 0 0 .213 0 .16.16 0 0 0 0-.187l-.533-2.32c-.086-.343.08-.7.4-.853a65.56 65.56 0 0 0 13.333-8.587l-2.187-2.187h-3.573zm3.84.48z" fill="#FF6C37"/>
+                    <path d="M12.287 49.214l2.667-2.667 4.107 4.107-6.533-.453c-.23-.017-.425-.18-.48-.406s.042-.46.24-.58z" fill="#FFFFFF"/>
+                    <path d="M19.14 51.054l-6.507-.453c-.386-.036-.718-.3-.854-.653s-.053-.772.214-1.054l2.667-2.667a.48.48 0 0 1 .667 0l4.08 4.08c.116.16.116.374 0 .533-.062.1-.156.175-.267.213zm-6.507-1.493l5.333.347-2.933-2.747z" fill="#FF6C37"/>
+                    <path d="M30.74 35.322l-5.387.827 3.12-3.093z" fill="#FFFFFF"/>
+                    <path d="M25.353 36.654c-.183.005-.35-.1-.427-.267a.45.45 0 0 1 0-.533l3.093-3.12c.195-.183.498-.183.693 0L30.98 35a.45.45 0 0 1 0 .48.47.47 0 0 1-.373.347l-5.333.827zm3.12-2.907L26.74 35.48l2.987-.453z" fill="#FF6C37"/>
+                    <path d="M30.74 35.32l-3.76.48a.48.48 0 0 1-.453-.8l1.947-1.947z" fill="#FFFFFF"/>
+                    <path d="M26.873 36.308c-.355-.003-.68-.197-.853-.507a.96.96 0 0 1 .16-1.147l1.947-1.947c.195-.183.498-.183.693 0l2.267 2.267a.48.48 0 0 1-.293.827l-3.733.48zm0-.987l2.827-.347-1.253-1.253-1.6 1.6zm23.2-19.28a.4.4 0 0 0-.507-.16.37.37 0 0 0-.186.22c-.03.095-.02.198.026.287.187.393.135.858-.133 1.2-.07.066-.1.157-.1.253a.38.38 0 0 0 .1.253.29.29 0 0 0 .213 0 .35.35 0 0 0 .347-.107 1.84 1.84 0 0 0 .24-1.947z" fill="#FF6C37"/>
+                  </svg>
+                </div>
+
+                <!-- 5. Docker & MySQL (82px × 82px) -->
+                <div class="app-icon-lg bg-[#081B2B]" title="Docker &amp; MySQL — Database &amp; Container">
+                  <svg viewBox="0 0 128 128" class="w-full h-full p-3.5" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#00A4C8" d="M117.688 98.242c-6.973-.191-12.297.461-16.852 2.379-1.293.547-3.355.559-3.566 2.18.711.746.82 1.859 1.387 2.777 1.086 1.754 2.922 4.113 4.559 5.352 1.789 1.348 3.633 2.793 5.551 3.961 3.414 2.082 7.223 3.27 10.504 5.352 1.938 1.23 3.859 2.777 5.75 4.164.934.684 1.563 1.75 2.773 2.18v-.195c-.637-.812-.801-1.93-1.387-2.777l-2.578-2.578c-2.52-3.344-5.719-6.281-9.117-8.719-2.711-1.949-8.781-4.578-9.91-7.73l-.199-.199c1.922-.219 4.172-.914 5.949-1.391 2.98-.797 5.645-.59 8.719-1.387l4.164-1.187v-.793c-1.555-1.594-2.664-3.707-4.359-5.152-4.441-3.781-9.285-7.555-14.273-10.703-2.766-1.746-6.184-2.883-9.117-4.363-.988-.496-2.719-.758-3.371-1.586-1.539-1.961-2.379-4.449-3.566-6.738-2.488-4.793-4.93-10.023-7.137-15.066-1.504-3.437-2.484-6.828-4.359-9.91-9-14.797-18.687-23.73-33.695-32.508-3.195-1.867-7.039-2.605-11.102-3.57l-6.543-.395c-1.332-.555-2.715-2.184-3.965-2.977C16.977 3.52 4.223-3.312.539 5.672-1.785 11.34 4.016 16.871 6.09 19.746c1.457 2.012 3.32 4.273 4.359 6.539.688 1.492.805 2.984 1.391 4.559 1.438 3.883 2.695 8.109 4.559 11.695.941 1.816 1.98 3.727 3.172 5.352.727.996 1.98 1.438 2.18 2.973-1.227 1.715-1.297 4.375-1.984 6.543-3.098 9.77-1.926 21.91 2.578 29.137 1.383 2.223 4.641 6.98 9.117 5.156 3.918-1.598 3.043-6.539 4.164-10.902.254-.988.098-1.715.594-2.379v.199l3.57 7.133c2.641 4.254 7.324 8.699 11.297 11.699 2.059 1.555 3.68 4.242 6.344 5.152v-.199h-.199c-.516-.805-1.324-1.137-1.98-1.781-1.551-1.523-3.277-3.414-4.559-5.156-3.613-4.902-6.805-10.27-9.711-15.855-1.391-2.668-2.598-5.609-3.77-8.324-.453-1.047-.445-2.633-1.387-3.172-1.281 1.988-3.172 3.598-4.164 5.945-1.582 3.754-1.789 8.336-2.375 13.082-.348.125-.195.039-.398.199-2.762-.668-3.73-3.508-4.758-5.949-2.594-6.164-3.078-16.09-.793-23.191.59-1.836 3.262-7.617 2.18-9.316-.516-1.691-2.219-2.672-3.172-3.965-1.18-1.598-2.355-3.703-3.172-5.551-2.125-4.805-3.113-10.203-5.352-15.062-1.07-2.324-2.875-4.676-4.359-6.738-1.645-2.289-3.484-3.977-4.758-6.742-.453-.984-1.066-2.559-.398-3.566.215-.684.516-.969 1.191-1.191 1.148-.887 4.352.297 5.547.793 3.18 1.32 5.832 2.578 8.527 4.363 1.289.855 2.598 2.512 4.16 2.973h1.785c2.789.641 5.914.195 8.523.988 4.609 1.402 8.738 3.582 12.488 5.949 11.422 7.215 20.766 17.48 27.156 29.734 1.027 1.973 1.473 3.852 2.379 5.945 1.824 4.219 4.125 8.559 5.941 12.688 1.816 4.113 3.582 8.27 6.148 11.695 1.348 1.801 6.551 2.766 8.918 3.766 1.66.699 4.379 1.43 5.949 2.379 3 1.809 5.906 3.965 8.723 5.945 1.402.992 5.73 3.168 5.945 4.957zm-88.605-75.52c-1.453-.027-2.48.156-3.566.395v.199h.195c.695 1.422 1.918 2.34 2.777 3.566l1.98 4.164.199-.195c1.227-.867 1.789-2.25 1.781-4.363-.492-.52-.562-1.164-.992-1.785-.562-.824-1.66-1.289-2.375-1.98zm0 0"/>
+                    <path fill="#F29111" d="M37.5 106.2c3.5 1.8 7.8 2.2 11.2 1.1-2.4-1.2-4.5-3.1-6.1-5.3-1.8 1.5-3.4 3-5.1 4.2z" />
+                  </svg>
+                </div>
+
+                <!-- 6. Flutter (82px × 82px) -->
+                <div class="app-icon-lg bg-[#0B1E36]" title="Flutter — Cross-Platform App Framework">
+                  <svg viewBox="0 0 166 202" class="h-[46px] w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100.1 0L0 100.1L31 131.1L162.2 0H100.1Z" fill="#47C5FB"/>
+                    <path d="M100.6 100.6L49.1 152.1L80.1 183.1L162.7 100.6H100.6Z" fill="#00569E"/>
+                    <path d="M79.8 183.4L98.5 202H161.4L110.8 152.4L79.8 183.4Z" fill="#0175C2"/>
+                    <path d="M100.6 100.6L110.8 152.4L162.7 100.6H100.6Z" fill="#02569B"/>
+                  </svg>
+                </div>
+
+                <!-- 7. Arduino IDE (82px × 82px) -->
+                <div class="app-icon-lg bg-[#005B60]" title="Arduino IDE — Pemrograman IoT &amp; Embedded">
+                  <svg viewBox="0 0 100 60" class="w-[54px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 6C15 6 6 16 6 30C6 44 15 54 30 54C41 54 48 46 50 41C52 46 59 54 70 54C85 54 94 44 94 30C94 16 85 6 70 6C59 6 52 14 50 19C48 14 41 6 30 6ZM30 14C39 14 44 22 45 27C44 32 39 46 30 46C20 46 14 39 14 30C14 21 20 14 30 14ZM70 14C80 14 86 21 86 30C86 39 80 46 70 46C61 46 56 32 55 27C56 22 61 14 70 14Z" fill="#00979D"/>
+                    <rect x="23" y="27" width="14" height="5" rx="1.5" fill="#FFFFFF"/>
+                    <rect x="63" y="27" width="14" height="5" rx="1.5" fill="#FFFFFF"/>
+                    <rect x="67.5" y="22.5" width="5" height="14" rx="1.5" fill="#FFFFFF"/>
+                  </svg>
+                </div>
+
+                <!-- 8. Android Studio (82px × 82px) -->
+                <div class="app-icon-lg bg-[#1B3022]" title="Android Studio — Native Android Development">
+                  <svg viewBox="0 0 100 100" class="w-[50px] h-[50px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M29 20L21 8C19.5 6 17 6 15.5 7.5C14 9 14 11.5 15.5 13L24 25.5C14.5 31.5 8 42 7 54H93C92 42 85.5 31.5 76 25.5L84.5 13C86 11.5 86 9 84.5 7.5C83 6 80.5 6 79 8L71 20C64.5 17 57.5 15.5 50 15.5C42.5 15.5 35.5 17 29 20ZM33 38C35.8 38 38 40.2 38 43C38 45.8 35.8 48 33 48C30.2 48 28 45.8 28 43C28 40.2 30.2 38 33 38ZM67 38C69.8 38 72 40.2 72 43C72 45.8 69.8 48 67 48C64.2 48 62 45.8 62 43C62 40.2 64.2 38 67 38Z" fill="#3DDC84"/>
+                    <rect x="7" y="58" width="86" height="32" rx="10" fill="#3DDC84"/>
+                  </svg>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Sub-Column: 8 Skill Progress Bars (Spaced to match the 4 rows of 82px icons) -->
+            <div class="w-full sm:w-[168px] space-y-[18px] pt-1">
+              
+              <!-- Bar 1 (VS Code) -->
+              <div>
+                <div id="barLabel1" class="text-[11px] font-medium text-[#222222] mb-1">VS Code</div>
+                <div class="skill-track">
+                  <div id="barFill1" class="skill-fill bg-[#2B2B2B]" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 2 (Figma) -->
+              <div>
+                <div id="barLabel2" class="text-[11px] font-medium text-[#222222] mb-1">Figma UI/UX</div>
+                <div class="skill-track">
+                  <div id="barFill2" class="skill-fill bg-[#EB2A64]" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 3 (Docker & MySQL) -->
+              <div>
+                <div id="barLabel3" class="text-[11px] font-medium text-[#222222] mb-1">Docker &amp; MySQL</div>
+                <div class="skill-track">
+                  <div id="barFill3" class="skill-fill bg-[#1BA1F3]" style="width: 82%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 4 (Postman API) -->
+              <div>
+                <div id="barLabel4" class="text-[11px] font-medium text-[#222222] mb-1">Postman API</div>
+                <div class="skill-track">
+                  <div id="barFill4" class="skill-fill bg-[#9E97EA]" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 5 (Git & GitHub) -->
+              <div>
+                <div id="barLabel5" class="text-[11px] font-medium text-[#222222] mb-1">Git &amp; GitHub</div>
+                <div class="skill-track">
+                  <div id="barFill5" class="skill-fill bg-[#F59B1A]" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 6 (Flutter & Dart) -->
+              <div>
+                <div id="barLabel6" class="text-[11px] font-medium text-[#222222] mb-1">Flutter &amp; Dart</div>
+                <div class="skill-track">
+                  <div id="barFill6" class="skill-fill bg-[#02569B]" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 7 (Arduino IDE) -->
+              <div>
+                <div id="barLabel7" class="text-[11px] font-medium text-[#222222] mb-1">Arduino IDE &amp; IoT</div>
+                <div class="skill-track">
+                  <div id="barFill7" class="skill-fill bg-[#00979D]" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 8 (Android Studio) -->
+              <div>
+                <div id="barLabel8" class="text-[11px] font-medium text-[#222222] mb-1">Android Studio</div>
+                <div class="skill-track">
+                  <div id="barFill8" class="skill-fill bg-[#3DDC84]" style="width: 88%;"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ============================================================
+       MODAL 1: EDIT PROFIL & DATA PORTOFOLIO (Real-Time + LocalStorage)
+       ============================================================ -->
+  <div id="editProfileModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-[18px] font-bold text-[#1E1B54]">Sesuaikan Profil Portofolio Anda</h3>
+          <p class="text-[11.5px] text-slate-500">Nama yang Anda ketik otomatis dirender dengan gaya huruf Stencil seperti di foto!</p>
+        </div>
+        <button onclick="closeEditModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 font-bold">✕</button>
+      </div>
+
+      <form onsubmit="saveCustomProfile(event)" class="space-y-3.5 text-[13px]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Nama Lengkap (2 Baris Stencil)</label>
+            <input type="text" id="inputFullName" required placeholder="Contoh: HAMIZAN QOWIEM" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]" />
+          </div>
+          <div>
+            <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Nama Panggilan (A.K.A)</label>
+            <input type="text" id="inputAka" required placeholder="Contoh: Hamizan" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Label Stiker PORTFOLIO</label>
+            <input type="text" id="inputBadgeSub" required placeholder="Illustration / IT Portfolio" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]" />
+          </div>
+          <div>
+            <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Tahun Stiker</label>
+            <input type="text" id="inputBadgeYear" maxlength="6" required placeholder="2025" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Kampus / Pendidikan (Education)</label>
+          <input type="text" id="inputEdu" required placeholder="Currently studying Informatics Engineering at..." class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]" />
+        </div>
+
+        <div>
+          <label class="block text-[11.5px] font-semibold text-[#1E1B54] mb-1">Deskripsi Singkat (About Me Bio)</label>
+          <textarea id="inputBio" rows="3" required class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-[#3787C8]"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div>
+            <label class="block text-[11px] font-semibold text-[#1E1B54] mb-1">Instagram</label>
+            <input type="text" id="inputIg" required class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-[12px]" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-[#1E1B54] mb-1">Email</label>
+            <input type="text" id="inputEmail" required class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-[12px]" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-[#1E1B54] mb-1">GitHub</label>
+            <input type="text" id="inputGithub" required class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-[12px]" />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+          <button type="button" onclick="resetDefaultProfile()" class="text-[12px] text-rose-600 hover:underline font-medium">
+            Reset ke Default
+          </button>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="closeEditModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">
+              Batal
+            </button>
+            <button type="submit" class="px-5 py-2 rounded-xl bg-[#1E1B54] hover:bg-[#3787C8] text-white font-semibold shadow">
+              Simpan Perubahan
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- ============================================================
+       JAVASCRIPT LOGIC (Dynamic Stencil Name SVG, Presets, Modals)
+       ============================================================ -->
+  <script>
+    // Default Profile State (Hamizan Qowiem - Anak IT & Software)
+    const defaultProfile = {
+      fullName: "HAMIZAN QOWIEM",
+      aka: "Hamizan",
+      badgeSub: "IT & Software",
+      badgeYear: "2025",
+      edu: "Currently studying Informatics Engineering / Computer Science (S1 Teknik Informatika) at the Technological Institute.",
+      bio: "Saya seorang IT & Software Developer yang sangat menguasai pengembangan Full-Stack Web, Aplikasi Mobile (Flutter & Android Studio), Aplikasi PC Desktop, hingga IoT & Pemrograman Arduino (Wokwi, ESP32, sensor). Saya berfokus pada arsitektur kode bersih, solusi terintegrasi dari hardware mikrokontroler hingga cloud, dan aplikasi berperforma tinggi.",
+      ig: "hmznqwm",
+      email: "hamizanqowiem4@gmail.com",
+      github: "github.com/hmznqwm"
+    };
+
+    let currentProfile = { ...defaultProfile };
+    let isITSoftwarePreset = true;
+    let isITBadgeLabel = true;
+
+
+    /**
+     * Renders the authentic stencil SVG for "HAMIZAN QOWIEM" or dynamically generates
+     * a matching stencil-cut SVG for any custom name entered by the user.
+     */
+    function renderStencilNameSVG(fullNameText) {
+      const container = document.getElementById("stencilNameContainer");
+      const cleaned = (fullNameText || "HAMIZAN QOWIEM").trim().toUpperCase();
+
+      // Tailored Stencil for HAMIZAN QOWIEM
+      if (cleaned === "HAMIZAN QOWIEM") {
+        container.innerHTML = `
+          <svg viewBox="0 0 320 86" class="w-[280px] h-auto overflow-visible" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="38" font-family="'Poppins', sans-serif" font-weight="900" font-size="39" fill="#1E1B54" letter-spacing="2">HAMIZAN</text>
+            <text x="0" y="79" font-family="'Poppins', sans-serif" font-weight="900" font-size="39" fill="#1E1B54" letter-spacing="2">QOWIEM</text>
+            <!-- Stencil Cut Overlays -->
+            <g fill="#FFFFFF">
+              <rect x="15" y="14" width="2.4" height="12" />
+              <rect x="52" y="21" width="2.4" height="9" />
+              <rect x="106" y="8" width="2.4" height="12" />
+              <rect x="171" y="20" width="2.4" height="10" />
+              <rect x="214" y="21" width="2.4" height="9" />
+              <rect x="261" y="15" width="2.4" height="12" />
+              
+              <rect x="21" y="44" width="2.4" height="11" />
+              <rect x="21" y="68" width="2.4" height="11" />
+              <rect x="70" y="44" width="2.4" height="11" />
+              <rect x="70" y="68" width="2.4" height="11" />
+              <rect x="129" y="58" width="2.4" height="12" />
+              <rect x="199" y="56" width="2.4" height="9" />
+              <rect x="250" y="48" width="2.4" height="12" />
+            </g>
+          </svg>
+        `;
+        return;
+      }
+
+      // If default "LETICIA VALDEZ", use the hand-crafted vector paths with stencil slits
+      if (cleaned === "LETICIA VALDEZ") {
+        container.innerHTML = `
+          <svg viewBox="0 0 240 84" class="w-[224px] h-auto overflow-visible" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#1E1B54">
+              <!-- Row 1: LETICIA -->
+              <!-- L with bottom foot slit -->
+              <path d="M 2 4 H 12.5 V 38 H 2 Z M 14.8 29.5 H 25.5 V 38 H 14.8 Z"/>
+              <!-- E with top bar slit -->
+              <path d="M 29 4 H 39 V 17 H 49.5 V 24.5 H 39 V 30 H 53 V 38 H 29 Z M 41.2 4 H 52.5 V 12 H 41.2 Z"/>
+              <!-- T with right crossbar slit -->
+              <path d="M 56 4 H 76.5 V 38 H 66.2 V 12.5 H 56 Z M 78.8 4 H 86.8 V 12.5 H 78.8 Z"/>
+              <!-- I -->
+              <path d="M 90.5 4 H 101 V 38 H 90.5 Z"/>
+              <!-- C with top stencil slit -->
+              <path d="M 124.5 3.2 C 132 3.2, 138 6.5, 141 12.5 L 132 17.2 C 130.2 14, 127.5 12.5, 124 12.5 C 118.5 12.5, 115 16.2, 115 21 C 115 25.8, 118.5 29.5, 124 29.5 C 127.5 29.5, 130.2 28, 132 24.8 L 141 29.5 C 138 35.5, 132 38.8, 124.5 38.8 C 113 38.8, 104.5 31.2, 104.5 21 C 104.5 10.8, 113 3.2, 124.5 3.2 Z"/>
+              <rect x="119" y="2.5" width="2.1" height="10.5" fill="#FFFFFF"/>
+              <!-- I -->
+              <path d="M 145 4 H 155.5 V 38 H 145 Z"/>
+              <!-- A with stencil slit -->
+              <path d="M 173 4 H 184.5 L 198 38 H 186.8 L 184.2 31 H 173.2 L 170.6 38 H 159.5 L 173 4 Z M 175.8 23.2 H 181.6 L 178.7 14.5 Z"/>
+              <rect x="171.2" y="22.5" width="1.9" height="9" fill="#FFFFFF"/>
+
+              <!-- Row 2: VALDEZ -->
+              <!-- V -->
+              <path d="M 1 46 H 12.2 L 18.8 66.5 L 25.4 46 H 36.5 L 24.2 80 H 13.2 L 1 46 Z"/>
+              <!-- A with stencil slit -->
+              <path d="M 48 46 H 59.5 L 73 80 H 61.8 L 59.2 73 H 48.2 L 45.6 80 H 34.5 L 48 46 Z M 50.8 65.2 H 56.6 L 53.7 56.5 Z"/>
+              <rect x="46.2" y="64.5" width="1.9" height="9" fill="#FFFFFF"/>
+              <!-- L with bottom foot slit -->
+              <path d="M 76.5 46 H 87 V 80 H 76.5 Z M 89.3 71.5 H 100.5 V 80 H 89.3 Z"/>
+              <!-- D with top & bottom stencil slits -->
+              <path d="M 104.5 46 H 121.5 C 133 46, 140.5 53, 140.5 63 C 140.5 73, 133 80, 121.5 80 H 104.5 Z M 115 54.5 V 71.5 H 121 C 126.8 71.5, 130 68.2, 130 63 C 130 57.8, 126.8 54.5, 121 54.5 Z"/>
+              <rect x="115" y="45.5" width="2.1" height="9.5" fill="#FFFFFF"/>
+              <rect x="115" y="70.5" width="2.1" height="10" fill="#FFFFFF"/>
+              <!-- E -->
+              <path d="M 145 46 H 155 V 59 H 165.5 V 66.5 H 155 V 72 H 169 V 80 H 145 Z M 157.2 46 H 168.5 V 54 H 157.2 Z"/>
+              <!-- Z -->
+              <path d="M 173 46 H 201.5 V 53.8 L 185.5 71.5 H 202 V 80 H 172 V 72.2 L 188 54.5 H 173 Z"/>
+            </g>
+          </svg>
+        `;
+        return;
+      }
+
+      // Split custom name into 2 lines for the stacked stencil effect
+      const words = cleaned.split(/\s+/);
+      const line1 = words[0] || "PORTFOLIO";
+      const line2 = words.slice(1).join(" ") || "DEVELOPER";
+
+      container.innerHTML = `
+        <svg viewBox="0 0 310 86" class="w-[270px] h-auto overflow-visible" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="38" font-family="'Poppins', sans-serif" font-weight="900" font-size="40" fill="#1E1B54" letter-spacing="1.5">${line1}</text>
+          <text x="0" y="79" font-family="'Poppins', sans-serif" font-weight="900" font-size="40" fill="#1E1B54" letter-spacing="1.5">${line2}</text>
+          <!-- Stencil Cut Overlay Lines to give any custom name the authentic stencil look -->
+          <g fill="#FFFFFF">
+            <rect x="15" y="2" width="2.2" height="11" />
+            <rect x="64" y="26" width="2.2" height="14" />
+            <rect x="118" y="2" width="2.2" height="12" />
+            <rect x="22" y="44" width="2.2" height="12" />
+            <rect x="86" y="68" width="2.2" height="14" />
+            <rect x="142" y="44" width="2.2" height="12" />
+          </g>
+        </svg>
+      `;
+    }
+
+    // Apply currentProfile to DOM
+    function applyProfileToDOM() {
+      // Format top header name nicely
+      const formattedTopName = currentProfile.fullName
+        .toLowerCase()
+        .replace(/\b\w/g, c => c.toUpperCase());
+      document.getElementById("topNameDisplay").textContent = formattedTopName;
+
+      // Render Stencil Name
+      renderStencilNameSVG(currentProfile.fullName);
+
+      // Update AKA, Bio, Education, Socials
+      document.getElementById("akaDisplay").textContent = currentProfile.aka;
+      document.getElementById("badgeSubtitleText").textContent = currentProfile.badgeSub;
+      document.getElementById("badgeYearText").textContent = currentProfile.badgeYear;
+      document.getElementById("eduDisplay").textContent = currentProfile.edu;
+      document.getElementById("bioDisplay").textContent = currentProfile.bio;
+      document.getElementById("igDisplay").textContent = currentProfile.ig;
+      document.getElementById("emailDisplay").textContent = currentProfile.email;
+      document.getElementById("githubDisplay").textContent = currentProfile.github;
+
+      const cardEmail = document.getElementById("contactCardEmail");
+      if (cardEmail) cardEmail.textContent = currentProfile.email;
+      const cardGh = document.getElementById("contactCardGithub");
+      if (cardGh) cardGh.textContent = currentProfile.github;
+      const cardIg = document.getElementById("contactCardIg");
+      if (cardIg) cardIg.textContent = "@" + currentProfile.ig.replace(/^@/, '');
+
+      // Update URLs for direct navigation without copying
+      const cleanIg = currentProfile.ig.replace(/^@/, '');
+      const igUrl = `https://instagram.com/${cleanIg}`;
+      const emailUrl = `mailto:${currentProfile.email}`;
+      const ghUrl = currentProfile.github.startsWith("http")
+        ? currentProfile.github
+        : `https://${currentProfile.github}`;
+
+      const igLink = document.getElementById("igLink");
+      if (igLink) igLink.href = igUrl;
+      const emailLink = document.getElementById("emailLink");
+      if (emailLink) emailLink.href = emailUrl;
+      const githubLink = document.getElementById("githubLink");
+      if (githubLink) githubLink.href = ghUrl;
+
+      const cardEmailLink = document.getElementById("contactCardEmailLink");
+      if (cardEmailLink) cardEmailLink.href = emailUrl;
+      const cardGhLink = document.getElementById("contactCardGithubLink");
+      if (cardGhLink) cardGhLink.href = ghUrl;
+      const cardIgLink = document.getElementById("contactCardIgLink");
+      if (cardIgLink) cardIgLink.href = igUrl;
+    }
+
+    // Sticker Subtitle (IT & Software)
+    function toggleSubtitleMode() {
+      const subText = document.getElementById("badgeSubtitleText");
+      const indicator = document.getElementById("subtitleModeIndicator");
+      if (subText) subText.textContent = "IT & Software";
+      if (indicator) indicator.textContent = "IT & Software";
+      showToast("Label stiker: IT & Software");
+    }
+
+    // Toggle between Anak IT Softwares and Original Photo Creative Softwares
+    function toggleSoftwarePreset() {
+      isITSoftwarePreset = !isITSoftwarePreset;
+      const label = document.getElementById("softwareToggleLabel");
+      const topRow = document.getElementById("topTwoIconsRow");
+      const bottomRow = document.getElementById("bottomThreeIconsRow");
+
+      if (isITSoftwarePreset) {
+        label.textContent = "Mode: Anak IT";
+        topRow.innerHTML = `
+          <div class="app-icon-lg bg-[#1F212B]" title="Visual Studio Code">
+            <svg viewBox="0 0 84 84" class="w-full h-full p-3.5">
+              <path d="M58.5 10.5L27.5 39.2L14.5 29.2L9 32.8V51.2L14.5 54.8L27.5 44.8L58.5 73.5L73 66.5V17.5L58.5 10.5ZM58.5 28.2V55.8L38.5 42L58.5 28.2Z" fill="#24A3FF"/>
+              <path d="M58.5 10.5L73 17.5V66.5L58.5 73.5V10.5Z" fill="#007ACC"/>
+            </svg>
+          </div>
+          <div class="app-icon-lg bg-[#1E1E1E]" title="Figma UI/UX">
+            <svg viewBox="0 0 38 57" class="h-[46px] w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+              <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+              <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+              <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+              <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+            </svg>
+          </div>
+        `;
+        bottomRow.innerHTML = `
+          <div class="app-icon-sm bg-[#1C1F26]" title="Git &amp; GitHub">
+            <svg viewBox="0 0 128 128" class="w-full h-full p-2.5" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#FFFFFF" d="M 64 9 L 119 64 L 64 119 L 9 64 Z"/>
+              <path fill="#F34F29" d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z"/>
+            </svg>
+          </div>
+          <div class="app-icon-sm bg-[#1C1F26]" title="Postman API">
+            <svg viewBox="0 0 64 64" class="w-full h-full p-2.5" xmlns="http://www.w3.org/2000/svg">
+              <path d="M57.327 12.44a32 32 0 1 0-5.761 44.88c13.98-10.804 16.56-30.895 5.76-44.88z" fill="#FF6C37"/>
+              <path d="M42.793 20.388L29.3 33.988l-3.813-3.92c13.28-13.28 14.613-12.08 17.307-9.68z" fill="#FFFFFF"/>
+              <path d="M29.3 34.36a.48.48 0 0 1-.32-.133l-3.84-3.84a.48.48 0 0 1 0-.667c13.093-13.093 14.88-12.48 17.973-9.68.105.084.164.212.16.347.02.13-.03.263-.133.347L29.647 34.228c-.095.087-.218.134-.347.133zm-3.147-4.293l3.147 3.147 12.8-12.8a2.88 2.88 0 0 0-3.787-.64c-2.32 1.04-6.053 4.213-12.16 10.293z" fill="#FF6C37"/>
+              <path d="M33.167 37.748l-3.68-3.76L42.98 20.654c3.627 3.547-1.76 9.467-9.813 17.093z" fill="#FFFFFF"/>
+              <path d="M33.167 38.228a.56.56 0 0 1-.32-.133l-3.76-3.68a.56.56 0 0 1 0-.427c-.04-.112-.04-.235 0-.347L42.58 20.148c.195-.183.498-.183.693 0 .885.814 1.37 1.972 1.333 3.173 0 3.6-4.107 8.133-11.093 14.747a.56.56 0 0 1-.347.16zm-2.987-4.24L33.193 37c5.333-5.04 10.427-10.24 10.453-13.76a3.04 3.04 0 0 0-.693-2.053z" fill="#FF6C37"/>
+              <path d="M25.593 30.148l2.667 2.667a.16.16 0 0 1 0 .24l-5.627 1.2c-.233.05-.47-.062-.582-.272s-.07-.47.102-.635l3.28-3.253s.107 0 .16.053z" fill="#FFFFFF"/>
+              <path d="M22.5 34.788a1.04 1.04 0 0 1-.88-.507c-.21-.397-.135-.886.187-1.2l3.253-3.28a.64.64 0 0 1 .853 0l2.667 2.667c.158.15.22.377.16.587s-.236.377-.453.427l-5.627 1.2zm2.987-4.053l-3.013 3.013 4.987-1.067zm.24-.24z" fill="#FF6C37"/>
+              <path d="M49.967 12.894c-1.93-1.862-4.962-1.94-6.986-.183s-2.37 4.773-.794 6.943 4.547 2.778 6.847 1.4l-3.627-3.627z" fill="#FFFFFF"/>
+              <path d="M46.367 22.28a5.65 5.65 0 0 1-5.156-3.508c-.86-2.098-.384-4.506 1.2-6.118a5.71 5.71 0 0 1 8 0c.102.086.16.213.16.347a.46.46 0 0 1-.16.347l-4.32 4.08 3.28 3.227a.45.45 0 0 1 .133.4.48.48 0 0 1-.213.347 5.8 5.8 0 0 1-2.933.88zm0-10.347c-1.9.01-3.6 1.153-4.313 2.9s-.325 3.758 1.007 5.1c1.356 1.363 3.4 1.755 5.173.987l-3.147-3.147c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32l4.16-4.187c-.827-.634-1.838-.98-2.88-.987z" fill="#FF6C37"/>
+              <path d="M50.047 12.974l-4.56 4.533 3.627 3.627a5.52 5.52 0 0 0 1.013-.747c1.976-2.1 1.94-5.368-.08-7.413z" fill="#FFFFFF"/>
+              <path d="M49.033 21.534a.4.4 0 0 1-.32-.133l-3.627-3.627c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32l4.533-4.453a.48.48 0 0 1 .8 0 5.6 5.6 0 0 1 0 8 4.88 4.88 0 0 1-1.067.853.43.43 0 0 1-.32.027zM46.1 17.428l3.013 3.013a5.12 5.12 0 0 0 .587-.48 4.72 4.72 0 0 0 1.387-3.333 4.58 4.58 0 0 0-1.147-3.04z" fill="#FF6C37"/>
+              <path d="M43.353 20.948c-.75-.704-1.917-.704-2.667 0L28.607 33l2 2.027 12.773-11.2c.395-.377.616-.9.61-1.446s-.236-1.065-.637-1.434z" fill="#FFFFFF"/>
+              <path d="M30.5 35.508a.48.48 0 0 1-.32-.133l-2.027-2.027a.48.48 0 0 1 0-.667l12.08-12.027c.958-.956 2.51-.956 3.467 0 .48.48.74 1.135.72 1.813-.028.674-.326 1.308-.827 1.76l-12.773 11.2c-.093.066-.207.094-.32.08zM29.087 33l1.333 1.36 12.533-10.907c.31-.27.495-.656.507-1.067s-.15-.813-.453-1.093c-.583-.58-1.524-.58-2.107 0z" fill="#FF6C37"/>
+              <path d="M19.247 46.734a.27.27 0 0 0 0 .32l.533 2.32c.046.277-.087.553-.332.7a.65.65 0 0 1-.762-.077l-3.653-3.52L26.42 35h3.947l2.667 2.667a60.54 60.54 0 0 1-13.787 9.067z" fill="#FFFFFF"/>
+              <path d="M19.007 50.654c-.302-.006-.6-.13-.8-.347l-3.493-3.493c-.105-.084-.164-.212-.16-.347.004-.125.062-.242.16-.32L26.18 34.654a.45.45 0 0 1 .24-.133h3.973a.48.48 0 0 1 .32 0l2.667 2.667c.103.095.153.235.133.373a.43.43 0 0 1-.16.347l-.213.187a65.33 65.33 0 0 1-13.68 8.773l.507 2.16a1.15 1.15 0 0 1-1.093 1.413zm-3.253-4.187L18.9 49.64a.16.16 0 0 0 .213 0 .16.16 0 0 0 0-.187l-.533-2.32c-.086-.343.08-.7.4-.853a65.56 65.56 0 0 0 13.333-8.587l-2.187-2.187h-3.573zm3.84.48z" fill="#FF6C37"/>
+              <path d="M12.287 49.214l2.667-2.667 4.107 4.107-6.533-.453c-.23-.017-.425-.18-.48-.406s.042-.46.24-.58z" fill="#FFFFFF"/>
+              <path d="M19.14 51.054l-6.507-.453c-.386-.036-.718-.3-.854-.653s-.053-.772.214-1.054l2.667-2.667a.48.48 0 0 1 .667 0l4.08 4.08c.116.16.116.374 0 .533-.062.1-.156.175-.267.213zm-6.507-1.493l5.333.347-2.933-2.747z" fill="#FF6C37"/>
+              <path d="M30.74 35.322l-5.387.827 3.12-3.093z" fill="#FFFFFF"/>
+              <path d="M25.353 36.654c-.183.005-.35-.1-.427-.267a.45.45 0 0 1 0-.533l3.093-3.12c.195-.183.498-.183.693 0L30.98 35a.45.45 0 0 1 0 .48.47.47 0 0 1-.373.347l-5.333.827zm3.12-2.907L26.74 35.48l2.987-.453z" fill="#FF6C37"/>
+              <path d="M30.74 35.32l-3.76.48a.48.48 0 0 1-.453-.8l1.947-1.947z" fill="#FFFFFF"/>
+              <path d="M26.873 36.308c-.355-.003-.68-.197-.853-.507a.96.96 0 0 1 .16-1.147l1.947-1.947c.195-.183.498-.183.693 0l2.267 2.267a.48.48 0 0 1-.293.827l-3.733.48zm0-.987l2.827-.347-1.253-1.253-1.6 1.6zm23.2-19.28a.4.4 0 0 0-.507-.16.37.37 0 0 0-.186.22c-.03.095-.02.198.026.287.187.393.135.858-.133 1.2-.07.066-.1.157-.1.253a.38.38 0 0 0 .1.253.29.29 0 0 0 .213 0 .35.35 0 0 0 .347-.107 1.84 1.84 0 0 0 .24-1.947z" fill="#FF6C37"/>
+            </svg>
+          </div>
+          <div class="app-icon-sm bg-[#081B2B]" title="Docker & MySQL">
+            <svg viewBox="0 0 128 128" class="w-full h-full p-2.5" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#00A4C8" d="M117.688 98.242c-6.973-.191-12.297.461-16.852 2.379-1.293.547-3.355.559-3.566 2.18.711.746.82 1.859 1.387 2.777 1.086 1.754 2.922 4.113 4.559 5.352 1.789 1.348 3.633 2.793 5.551 3.961 3.414 2.082 7.223 3.27 10.504 5.352 1.938 1.23 3.859 2.777 5.75 4.164.934.684 1.563 1.75 2.773 2.18v-.195c-.637-.812-.801-1.93-1.387-2.777l-2.578-2.578c-2.52-3.344-5.719-6.281-9.117-8.719-2.711-1.949-8.781-4.578-9.91-7.73l-.199-.199c1.922-.219 4.172-.914 5.949-1.391 2.98-.797 5.645-.59 8.719-1.387l4.164-1.187v-.793c-1.555-1.594-2.664-3.707-4.359-5.152-4.441-3.781-9.285-7.555-14.273-10.703-2.766-1.746-6.184-2.883-9.117-4.363-.988-.496-2.719-.758-3.371-1.586-1.539-1.961-2.379-4.449-3.566-6.738-2.488-4.793-4.93-10.023-7.137-15.066-1.504-3.437-2.484-6.828-4.359-9.91-9-14.797-18.687-23.73-33.695-32.508-3.195-1.867-7.039-2.605-11.102-3.57l-6.543-.395c-1.332-.555-2.715-2.184-3.965-2.977C16.977 3.52 4.223-3.312.539 5.672-1.785 11.34 4.016 16.871 6.09 19.746c1.457 2.012 3.32 4.273 4.359 6.539.688 1.492.805 2.984 1.391 4.559 1.438 3.883 2.695 8.109 4.559 11.695.941 1.816 1.98 3.727 3.172 5.352.727.996 1.98 1.438 2.18 2.973-1.227 1.715-1.297 4.375-1.984 6.543-3.098 9.77-1.926 21.91 2.578 29.137 1.383 2.223 4.641 6.98 9.117 5.156 3.918-1.598 3.043-6.539 4.164-10.902.254-.988.098-1.715.594-2.379v.199l3.57 7.133c2.641 4.254 7.324 8.699 11.297 11.699 2.059 1.555 3.68 4.242 6.344 5.152v-.199h-.199c-.516-.805-1.324-1.137-1.98-1.781-1.551-1.523-3.277-3.414-4.559-5.156-3.613-4.902-6.805-10.27-9.711-15.855-1.391-2.668-2.598-5.609-3.77-8.324-.453-1.047-.445-2.633-1.387-3.172-1.281 1.988-3.172 3.598-4.164 5.945-1.582 3.754-1.789 8.336-2.375 13.082-.348.125-.195.039-.398.199-2.762-.668-3.73-3.508-4.758-5.949-2.594-6.164-3.078-16.09-.793-23.191.59-1.836 3.262-7.617 2.18-9.316-.516-1.691-2.219-2.672-3.172-3.965-1.18-1.598-2.355-3.703-3.172-5.551-2.125-4.805-3.113-10.203-5.352-15.062-1.07-2.324-2.875-4.676-4.359-6.738-1.645-2.289-3.484-3.977-4.758-6.742-.453-.984-1.066-2.559-.398-3.566.215-.684.516-.969 1.191-1.191 1.148-.887 4.352.297 5.547.793 3.18 1.32 5.832 2.578 8.527 4.363 1.289.855 2.598 2.512 4.16 2.973h1.785c2.789.641 5.914.195 8.523.988 4.609 1.402 8.738 3.582 12.488 5.949 11.422 7.215 20.766 17.48 27.156 29.734 1.027 1.973 1.473 3.852 2.379 5.945 1.824 4.219 4.125 8.559 5.941 12.688 1.816 4.113 3.582 8.27 6.148 11.695 1.348 1.801 6.551 2.766 8.918 3.766 1.66.699 4.379 1.43 5.949 2.379 3 1.809 5.906 3.965 8.723 5.945 1.402.992 5.73 3.168 5.945 4.957zm-88.605-75.52c-1.453-.027-2.48.156-3.566.395v.199h.195c.695 1.422 1.918 2.34 2.777 3.566l1.98 4.164.199-.195c1.227-.867 1.789-2.25 1.781-4.363-.492-.52-.562-1.164-.992-1.785-.562-.824-1.66-1.289-2.375-1.98zm0 0"/>
+              <path fill="#F29111" d="M37.5 106.2c3.5 1.8 7.8 2.2 11.2 1.1-2.4-1.2-4.5-3.1-6.1-5.3-1.8 1.5-3.4 3-5.1 4.2z" />
+            </svg>
+          </div>
+        `;
+        document.getElementById("barLabel1").textContent = "VS Code";
+        document.getElementById("barFill1").style.width = "95%";
+        document.getElementById("barLabel2").textContent = "Figma UI/UX";
+        document.getElementById("barFill2").style.width = "86%";
+        document.getElementById("barLabel3").textContent = "Docker & MySQL";
+        document.getElementById("barFill3").style.width = "82%";
+        document.getElementById("barLabel4").textContent = "Postman API";
+        document.getElementById("barFill4").style.width = "85%";
+        document.getElementById("barLabel5").textContent = "Git & GitHub";
+        document.getElementById("barFill5").style.width = "90%";
+        if (document.getElementById("barLabel6")) {
+          document.getElementById("barLabel6").textContent = "Flutter & Dart";
+          document.getElementById("barFill6").style.width = "95%";
+          document.getElementById("barLabel7").textContent = "Arduino IDE & IoT";
+          document.getElementById("barFill7").style.width = "92%";
+          document.getElementById("barLabel8").textContent = "Android Studio";
+          document.getElementById("barFill8").style.width = "88%";
+        }
+        const extraIcons = document.getElementById("extraThreeIconsRow");
+        if (extraIcons) extraIcons.style.display = "flex";
+        showToast("Menampilkan Software Utama Anak IT");
+      } else {
+        label.textContent = "Mode: Ilustrasi (Sesuai Foto)";
+        topRow.innerHTML = `
+          <div class="app-icon-lg bg-[#232325]" title="Procreate">
+            <svg viewBox="0 0 84 84" class="w-full h-full">
+              <defs>
+                <linearGradient id="procreateBrush" x1="15%" y1="85%" x2="85%" y2="15%">
+                  <stop offset="0%" stop-color="#FCE468"/>
+                  <stop offset="30%" stop-color="#F37158"/>
+                  <stop offset="65%" stop-color="#B946D8"/>
+                  <stop offset="100%" stop-color="#3BA9F9"/>
+                </linearGradient>
+              </defs>
+              <path d="M 12 72 C 18 46, 36 36, 54 28 C 66 22, 72 14, 74 8 C 74 24, 66 42, 48 48 C 32 54, 18 58, 12 72 Z" fill="url(#procreateBrush)"/>
+            </svg>
+          </div>
+          <div class="app-icon-lg bg-[#49021F]" title="Adobe InDesign">
+            <span class="text-[36px] font-bold text-[#FF3366] tracking-[-0.04em] leading-none">Id</span>
+          </div>
+        `;
+        bottomRow.innerHTML = `
+          <div class="app-icon-sm bg-[#330000]" title="Adobe Illustrator">
+            <span class="text-[23px] font-bold text-[#FF9A00] tracking-[-0.03em] leading-none">Ai</span>
+          </div>
+          <div class="app-icon-sm bg-[#00005B]" title="Adobe Premiere Pro">
+            <span class="text-[23px] font-bold text-[#9999FF] tracking-[-0.03em] leading-none">Pr</span>
+          </div>
+          <div class="app-icon-sm bg-[#001E36]" title="Adobe Photoshop">
+            <span class="text-[23px] font-bold text-[#31A8FF] tracking-[-0.03em] leading-none">Ps</span>
+          </div>
+        `;
+        const extraIcons = document.getElementById("extraThreeIconsRow");
+        if (extraIcons) extraIcons.style.display = "none";
+        document.getElementById("barLabel1").textContent = "Procreate";
+        document.getElementById("barFill1").style.width = "95%";
+        document.getElementById("barLabel2").textContent = "InDesign";
+        document.getElementById("barFill2").style.width = "70%";
+        document.getElementById("barLabel3").textContent = "Photoshop";
+        document.getElementById("barFill3").style.width = "54%";
+        document.getElementById("barLabel4").textContent = "Premiere";
+        document.getElementById("barFill4").style.width = "26%";
+        document.getElementById("barLabel5").textContent = "Illustrator";
+        document.getElementById("barFill5").style.width = "42%";
+        if (document.getElementById("barLabel6")) {
+          document.getElementById("barLabel6").textContent = "Lightroom";
+          document.getElementById("barFill6").style.width = "60%";
+          document.getElementById("barLabel7").textContent = "After Effects";
+          document.getElementById("barFill7").style.width = "48%";
+          document.getElementById("barLabel8").textContent = "CorelDraw";
+          document.getElementById("barFill8").style.width = "50%";
+        }
+        showToast("Menampilkan Software Ilustrasi Sesuai Foto Referensi");
+      }
+    }
+
+
+    // Edit Profile Modal Functions
+    function openEditModal() {
+      document.getElementById("inputFullName").value = currentProfile.fullName;
+      document.getElementById("inputAka").value = currentProfile.aka;
+      document.getElementById("inputBadgeSub").value = currentProfile.badgeSub;
+      document.getElementById("inputBadgeYear").value = currentProfile.badgeYear;
+      document.getElementById("inputEdu").value = currentProfile.edu;
+      document.getElementById("inputBio").value = currentProfile.bio;
+      document.getElementById("inputIg").value = currentProfile.ig;
+      document.getElementById("inputEmail").value = currentProfile.email;
+      document.getElementById("inputGithub").value = currentProfile.github;
+
+      const modal = document.getElementById("editProfileModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeEditModal() {
+      const modal = document.getElementById("editProfileModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function saveCustomProfile(e) {
+      e.preventDefault();
+      currentProfile = {
+        fullName: document.getElementById("inputFullName").value.trim() || defaultProfile.fullName,
+        aka: document.getElementById("inputAka").value.trim() || defaultProfile.aka,
+        badgeSub: document.getElementById("inputBadgeSub").value.trim() || defaultProfile.badgeSub,
+        badgeYear: document.getElementById("inputBadgeYear").value.trim() || defaultProfile.badgeYear,
+        edu: document.getElementById("inputEdu").value.trim() || defaultProfile.edu,
+        bio: document.getElementById("inputBio").value.trim() || defaultProfile.bio,
+        ig: document.getElementById("inputIg").value.trim() || defaultProfile.ig,
+        email: document.getElementById("inputEmail").value.trim() || defaultProfile.email,
+        github: document.getElementById("inputGithub").value.trim() || defaultProfile.github
+      };
+      try {
+        localStorage.setItem("it_portfolio_profile_2025", JSON.stringify(currentProfile));
+      } catch (err) {}
+      applyProfileToDOM();
+      closeEditModal();
+      showToast("Profil berhasil diperbarui & disimpan!");
+    }
+
+    function resetDefaultProfile() {
+      currentProfile = { ...defaultProfile };
+      try {
+        localStorage.removeItem("it_portfolio_profile_2025");
+      } catch (err) {}
+      applyProfileToDOM();
+      closeEditModal();
+      showToast("Profil dikembalikan ke tampilan awal");
+    }
+
+    // Clipboard Copy Helper (Uses execCommand fallback for iframe compatibility)
+    function copyContact(text, event) {
+      if (event) event.preventDefault();
+      const tempInput = document.createElement("textarea");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand("copy");
+        showToast(`Disalin ke clipboard: ${text}`);
+      } catch (err) {
+        showToast(text);
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Toast Notification
+    let toastTimer = null;
+    function showToast(message) {
+      const box = document.getElementById("toastBox");
+      const msg = document.getElementById("toastMsg");
+      msg.textContent = message;
+      box.classList.remove("hidden");
+      box.classList.add("flex");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.add("hidden");
+        box.classList.remove("flex");
+      }, 3200);
+    }
+
+    // Initialize on load
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        const saved = localStorage.getItem("it_portfolio_profile_2025");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed.fullName && (parsed.fullName.toUpperCase().includes("LETICIA") || parsed.aka === "Letty")) {
+            localStorage.removeItem("it_portfolio_profile_2025");
+            currentProfile = { ...defaultProfile };
+          } else {
+            currentProfile = { ...defaultProfile, ...parsed };
+          }
+        }
+      } catch (err) {}
+      if (currentProfile.badgeSub === "Illustration") {
+        currentProfile.badgeSub = "IT & Software";
+      }
+      applyProfileToDOM();
+    });
+  </script>
+</body>
+</html>
