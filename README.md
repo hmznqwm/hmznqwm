@@ -12,10 +12,4 @@
 <a href="https://hmznqwm.github.io/Readme/" target="_blank">
   <img src="preview.png" alt="Portofolio Hamizan Qowiem 2025" width="850" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"/>
 </a>
-
-<br/>
-<br/>
-
-**👉 Klik gambar di atas atau kunjungi: [hmznqwm.github.io/Readme](https://hmznqwm.github.io/Readme/) untuk mencoba portofolio interaktif!**
-
 </div>
